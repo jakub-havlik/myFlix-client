@@ -4,12 +4,25 @@ export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+
+  /* In the login screen you should make the request to authenticate the user and then save the token to be used in future requests*/
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
+
+    // authenticate the user
+    const response = await axios.post('https://listapeli.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+
+    // check if the request was successful and then proceed to save the token
+    if (response.status === 200) {
+      props.onLoggedIn(response.data.user._id, response.data.token);
+    }
+
+    // You should also cater for the cases where the response is `400` or `500` 
+
   };
 
 
@@ -17,11 +30,11 @@ export function LoginView(props) {
     <form>
       <label>
         Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
+        <input type="text" value={username} required={true} onChange={e => setUsername(e.target.value)} />
       </label>
       <label>
         Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
+        <input type="password" value={password} required={true} onChange={e => setPassword(e.target.value)} />
       </label>
 
       <button type="submit" onClick={handleSubmit}>Login</button>
@@ -31,3 +44,4 @@ export function LoginView(props) {
 
 
 }
+
