@@ -22756,13 +22756,20 @@ class MainView extends _reactDefault.default.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            token: null
         };
     }
-    componentDidMount() {
-        _axiosDefault.default.get('https://listapeli.herokuapp.com/movies').then((response)=>{
+    /* Before making the movies request you should add the bearer token to the header*/ componentDidMount() {
+        const token = localStorage.getItem('token');
+        if (token) _axiosDefault.default.get('https://listapeli.herokuapp.com/movies', {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        }).then((response)=>{
             this.setState({
-                movies: response.data
+                movies: response.data,
+                token: token
             });
         }).catch((error)=>{
             console.log(error);
@@ -22773,19 +22780,21 @@ class MainView extends _reactDefault.default.Component {
             selectedMovie: movie
         });
     }
-    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ onLoggedIn(user) {
+    /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/ /* You should also update the onLoggedIn function to save the token to the localstorage*/ onLoggedIn(user, token) {
         this.setState({
             user
         });
+        localStorage.setItem('token', token);
+        localStorage.setItem('userId', user);
     }
     render() {
         const { movies , selectedMovie , user  } = this.state;
         /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/ if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
-            onLoggedIn: (user1)=>this.onLoggedIn(user1)
+            onLoggedIn: (user1, token)=>this.onLoggedIn(user1, token)
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 58
+                lineNumber: 69
             },
             __self: this
         }));
@@ -22794,7 +22803,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 61
+                lineNumber: 72
             },
             __self: this
         }));
@@ -22802,7 +22811,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 64
+                lineNumber: 75
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22812,7 +22821,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-                    lineNumber: 67
+                    lineNumber: 78
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -22822,7 +22831,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 69
+                        lineNumber: 80
                     },
                     __self: this
                 }, movie._id)
@@ -24767,22 +24776,28 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
+    /* In the login screen you should make the request to authenticate the user and then save the token to be used in future requests*/ const handleSubmit = async (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
+        // authenticate the user
+        const response = await axios.post('https://listapeli.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        });
+        // check if the request was successful and then proceed to save the token
+        if (response.status === 200) props.onLoggedIn(response.data.user._id, response.data.token);
+    // You should also cater for the cases where the response is `400` or `500` 
     };
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 17
+            lineNumber: 30
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 18
+                    lineNumber: 31
                 },
                 __self: this,
                 children: [
@@ -24790,11 +24805,12 @@ function LoginView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         type: "text",
                         value: username,
+                        required: true,
                         onChange: (e)=>setUsername(e.target.value)
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 20
+                            lineNumber: 33
                         },
                         __self: this
                     })
@@ -24803,7 +24819,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 22
+                    lineNumber: 35
                 },
                 __self: this,
                 children: [
@@ -24811,11 +24827,12 @@ function LoginView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("input", {
                         type: "password",
                         value: password,
+                        required: true,
                         onChange: (e)=>setPassword(e.target.value)
                         ,
                         __source: {
                             fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 24
+                            lineNumber: 37
                         },
                         __self: this
                     })
@@ -24826,7 +24843,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 27
+                    lineNumber: 40
                 },
                 __self: this,
                 children: "Login"
@@ -24837,7 +24854,7 @@ function LoginView(props) {
                 },
                 __source: {
                     fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 28
+                    lineNumber: 41
                 },
                 __self: this,
                 children: "New User?"
@@ -24899,8 +24916,7 @@ class MovieCard extends _reactDefault.default.Component {
     movie: _propTypesDefault.default.shape({
         Title: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired,
-        ImagePath: _propTypesDefault.default.string.isRequired,
-        Rating: _propTypesDefault.default.string.isRequired
+        ImagePath: _propTypesDefault.default.string.isRequired
     }).isRequired,
     onMovieClick: _propTypesDefault.default.func.isRequired
 }; /*MovieCard.propTypes = {
