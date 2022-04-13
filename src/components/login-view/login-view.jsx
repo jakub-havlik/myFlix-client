@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 
 export function LoginView(props) {
-<<<<<<< Updated upstream
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-=======
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
->>>>>>> Stashed changes
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +12,7 @@ export function LoginView(props) {
     props.onLoggedIn(username);
   };
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
   return (
     <form>
       <label>
@@ -31,12 +23,6 @@ export function LoginView(props) {
         Password:
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
-<<<<<<< Updated upstream
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
-  );
-}
-=======
 
       <button type="submit" onClick={handleSubmit}>Login</button>
       <button onClick={() => { onBackClick(null); }}>New User?</button>
@@ -45,4 +31,3 @@ export function LoginView(props) {
 
 
 }
->>>>>>> Stashed changes
