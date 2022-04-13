@@ -17,21 +17,29 @@ export class MainView extends React.Component {
     this.state = {
       movies: [],
       selectedMovie: null,
-      user: null
+      user: null,
+      token: null
     };
   }
 
+  /* Before making the movies request you should add the bearer token to the header*/
 
   componentDidMount() {
-    axios.get('https://listapeli.herokuapp.com/movies')
-      .then(response => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      axios.get('https://listapeli.herokuapp.com/movies', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      }).then(response => {
         this.setState({
-          movies: response.data
+          movies: response.data,
+          token: token
         });
-      })
-      .catch(error => {
+      }).catch(error => {
         console.log(error);
       });
+    }
   }
 
   /*When a movie is clicked, this function is invoked and updates the state of the `selectedMovie` *property to that movie*/
@@ -43,11 +51,14 @@ export class MainView extends React.Component {
   }
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
+  /* You should also update the onLoggedIn function to save the token to the localstorage*/
 
-  onLoggedIn(user) {
+  onLoggedIn(user, token) {
     this.setState({
       user
     });
+    localStorage.setItem('token', token);
+    localStorage.setItem('userId', user);
   }
 
 
@@ -55,7 +66,7 @@ export class MainView extends React.Component {
     const { movies, selectedMovie, user } = this.state;
 
     /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-    if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+    if (!user) return <LoginView onLoggedIn={(user, token) => this.onLoggedIn(user, token)} />;
 
     // Before the movies have been loaded
     if (movies.length === 0) return <div className="main-view" />;
