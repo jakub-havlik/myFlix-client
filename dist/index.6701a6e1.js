@@ -946,20 +946,12 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactDom = require("react-dom");
 var _reactDomDefault = parcelHelpers.interopDefault(_reactDom);
 var _mainView = require("./components/main-view/main-view");
-<<<<<<< Updated upstream
-var _mainViewDefault = parcelHelpers.interopDefault(_mainView);
-=======
->>>>>>> Stashed changes
 // Import statement to indicate that you need to bundle `./index.scss`
 var _indexScss = require("./index.scss");
 // Main component (will eventually use all the others)
 class MyFlixApplication extends _reactDefault.default.Component {
     render() {
-<<<<<<< Updated upstream
-        return(/*#__PURE__*/ _jsxRuntime.jsx(_mainViewDefault.default, {
-=======
         return(/*#__PURE__*/ _jsxRuntime.jsx(_mainView.MainView, {
->>>>>>> Stashed changes
             __source: {
                 fileName: "src/index.jsx",
                 lineNumber: 12
@@ -22748,18 +22740,12 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MainView", ()=>MainView
 );
 var _jsxRuntime = require("react/jsx-runtime");
-<<<<<<< Updated upstream
-=======
 // main-view is the root component
->>>>>>> Stashed changes
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-<<<<<<< Updated upstream
-=======
 var _registrationView = require("../registration-view/registration-view");
->>>>>>> Stashed changes
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
 var _movieView = require("../movie-view/movie-view");
@@ -22799,11 +22785,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< Updated upstream
-                lineNumber: 56
-=======
                 lineNumber: 58
->>>>>>> Stashed changes
             },
             __self: this
         }));
@@ -22812,11 +22794,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< Updated upstream
-                lineNumber: 59
-=======
                 lineNumber: 61
->>>>>>> Stashed changes
             },
             __self: this
         }));
@@ -22824,11 +22802,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< Updated upstream
-                lineNumber: 62
-=======
                 lineNumber: 64
->>>>>>> Stashed changes
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -22838,29 +22812,17 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< Updated upstream
-                    lineNumber: 65
-                },
-                __self: this
-            }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
-                    movie: movie,
-=======
                     lineNumber: 67
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
                     movieData: movie,
->>>>>>> Stashed changes
                     onMovieClick: (newSelectedMovie)=>{
                         this.setSelectedMovie(newSelectedMovie);
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-<<<<<<< Updated upstream
-                        lineNumber: 67
-=======
                         lineNumber: 69
->>>>>>> Stashed changes
                     },
                     __self: this
                 }, movie._id)
@@ -22868,21 +22830,13 @@ class MainView extends _reactDefault.default.Component {
         }));
     }
 }
-<<<<<<< Updated upstream
-exports.default = MainView;
-=======
->>>>>>> Stashed changes
 
   $parcel$ReactRefreshHelpers$35bf.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< Updated upstream
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"l17M7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1S4yp"}],"iYoWk":[function(require,module,exports) {
-=======
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","../registration-view/registration-view":"aP2YV","../login-view/login-view":"054li","../movie-card/movie-card":"6EiBJ","../movie-view/movie-view":"ikZdr","@parcel/transformer-js/src/esmodule-helpers.js":"l17M7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1S4yp"}],"iYoWk":[function(require,module,exports) {
->>>>>>> Stashed changes
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"3QmO2"}],"3QmO2":[function(require,module,exports) {
@@ -24446,92 +24400,21 @@ var utils = require('./../utils');
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-<<<<<<< Updated upstream
-},{"./../utils":"hOPY0"}],"054li":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$02dd.prelude(module);
-=======
 },{"./../utils":"hOPY0"}],"aP2YV":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8dd4 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$8dd4.prelude(module);
->>>>>>> Stashed changes
 
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-<<<<<<< Updated upstream
-parcelHelpers.export(exports, "LoginView", ()=>LoginView
-=======
 parcelHelpers.export(exports, "RegistrationView", ()=>RegistrationView
->>>>>>> Stashed changes
 );
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _s = $RefreshSig$();
-<<<<<<< Updated upstream
-function LoginView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(username, password);
-        /* Send a request to the server for authentication */ /* then call props.onLoggedIn(username) */ props.onLoggedIn(username);
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-        __source: {
-            fileName: "src/components/login-view/login-view.jsx",
-            lineNumber: 16
-        },
-        __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 17
-                },
-                __self: this,
-                children: [
-                    "Username:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 19
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 21
-                },
-                __self: this,
-                children: [
-                    "Password:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "src/components/login-view/login-view.jsx",
-                            lineNumber: 23
-                        },
-                        __self: this
-                    })
-                ]
-=======
 function RegistrationView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
@@ -24689,44 +24572,26 @@ function RegistrationView(props) {
                         })
                     ]
                 })
->>>>>>> Stashed changes
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("button", {
                 type: "submit",
                 onClick: handleSubmit,
                 __source: {
-<<<<<<< Updated upstream
-                    fileName: "src/components/login-view/login-view.jsx",
-                    lineNumber: 25
-                },
-                __self: this,
-                children: "Submit"
-=======
                     fileName: "src/components/registration-view/registration-view.jsx",
                     lineNumber: 51
                 },
                 __self: this,
                 children: "Register"
->>>>>>> Stashed changes
             })
         ]
     }));
 }
-<<<<<<< Updated upstream
-_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
-_c = LoginView;
-var _c;
-$RefreshReg$(_c, "LoginView");
-
-  $parcel$ReactRefreshHelpers$02dd.postlude(module);
-=======
 _s(RegistrationView, "tdA1KK8yaZidqYo0wscqshHt/KE=");
 _c = RegistrationView;
 var _c;
 $RefreshReg$(_c, "RegistrationView");
 
   $parcel$ReactRefreshHelpers$8dd4.postlude(module);
->>>>>>> Stashed changes
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
@@ -24883,9 +24748,6 @@ function registerExportsForReactRefresh(module) {
     }
 }
 
-<<<<<<< Updated upstream
-},{"react-refresh/runtime":"jFxaF"}],"6EiBJ":[function(require,module,exports) {
-=======
 },{"react-refresh/runtime":"jFxaF"}],"054li":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$02dd = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
@@ -24994,7 +24856,6 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshSig$ = prevRefreshSig;
 }
 },{"react/jsx-runtime":"8xIwr","react":"6TuXu","@parcel/transformer-js/src/esmodule-helpers.js":"l17M7","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1S4yp"}],"6EiBJ":[function(require,module,exports) {
->>>>>>> Stashed changes
 var $parcel$ReactRefreshHelpers$4249 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -25006,48 +24867,22 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieCard", ()=>MovieCard
 );
 var _jsxRuntime = require("react/jsx-runtime");
-<<<<<<< Updated upstream
-=======
 // movie-card is a child component of main-view
->>>>>>> Stashed changes
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 class MovieCard extends _reactDefault.default.Component {
     render() {
-<<<<<<< Updated upstream
-        const { movie , onMovieClick  } = this.props;
-        return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
-            onClick: ()=>onMovieClick(movie)
-=======
         // extracting the prop
         // movieData is the prop name
         const { movieData , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsx("div", {
             onClick: ()=>onMovieClick(movieData)
->>>>>>> Stashed changes
             ,
             className: "movie-card",
             __source: {
                 fileName: "src/components/movie-card/movie-card.jsx",
-<<<<<<< Updated upstream
-                lineNumber: 9
-            },
-            __self: this,
-            children: movie.Title
-        }));
-    }
-}
-MovieCard.propTypes = {
-    movie: _propTypesDefault.default.shape({
-        Title: _propTypesDefault.default.string.isRequired,
-        Description: _propTypesDefault.default.string.isRequired,
-        ImagePath: _propTypesDefault.default.string.isRequired
-    }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
-};
-=======
                 lineNumber: 14
             },
             __self: this,
@@ -25080,7 +24915,6 @@ MovieCard.propTypes = {
   }).isRequired,
   onMovieClick: PropTypes.func.isRequired
 };*/ 
->>>>>>> Stashed changes
 
   $parcel$ReactRefreshHelpers$4249.postlude(module);
 } finally {
@@ -25793,10 +25627,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieView", ()=>MovieView
 );
 var _jsxRuntime = require("react/jsx-runtime");
-<<<<<<< Updated upstream
-=======
 // movie-view is a child component of movie-card
->>>>>>> Stashed changes
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 class MovieView extends _reactDefault.default.Component {
@@ -25815,11 +25646,7 @@ class MovieView extends _reactDefault.default.Component {
             className: "movie-view",
             __source: {
                 fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                lineNumber: 22
-=======
                 lineNumber: 26
->>>>>>> Stashed changes
             },
             __self: this,
             children: [
@@ -25827,18 +25654,6 @@ class MovieView extends _reactDefault.default.Component {
                     className: "movie-poster",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                        lineNumber: 23
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsx("img", {
-                        alt: "",
-                        width: "400px",
-                        src: movie.ImagePath,
-                        __source: {
-                            fileName: "src/components/movie-view/movie-view.jsx",
-                            lineNumber: 24
-=======
                         lineNumber: 27
                     },
                     __self: this,
@@ -25847,7 +25662,6 @@ class MovieView extends _reactDefault.default.Component {
                         __source: {
                             fileName: "src/components/movie-view/movie-view.jsx",
                             lineNumber: 28
->>>>>>> Stashed changes
                         },
                         __self: this
                     })
@@ -25856,11 +25670,7 @@ class MovieView extends _reactDefault.default.Component {
                     className: "movie-title",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                        lineNumber: 26
-=======
                         lineNumber: 30
->>>>>>> Stashed changes
                     },
                     __self: this,
                     children: [
@@ -25868,11 +25678,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                                lineNumber: 27
-=======
                                 lineNumber: 31
->>>>>>> Stashed changes
                             },
                             __self: this,
                             children: "Title: "
@@ -25881,11 +25687,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                                lineNumber: 28
-=======
                                 lineNumber: 32
->>>>>>> Stashed changes
                             },
                             __self: this,
                             children: movie.Title
@@ -25893,12 +25695,6 @@ class MovieView extends _reactDefault.default.Component {
                     ]
                 }),
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-<<<<<<< Updated upstream
-                    className: "movie-description",
-                    __source: {
-                        fileName: "src/components/movie-view/movie-view.jsx",
-                        lineNumber: 30
-=======
                     className: "movie-release-year",
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
@@ -25931,7 +25727,6 @@ class MovieView extends _reactDefault.default.Component {
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
                         lineNumber: 38
->>>>>>> Stashed changes
                     },
                     __self: this,
                     children: [
@@ -25939,11 +25734,7 @@ class MovieView extends _reactDefault.default.Component {
                             className: "label",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                                lineNumber: 31
-=======
                                 lineNumber: 39
->>>>>>> Stashed changes
                             },
                             __self: this,
                             children: "Description: "
@@ -25952,19 +25743,13 @@ class MovieView extends _reactDefault.default.Component {
                             className: "value",
                             __source: {
                                 fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                                lineNumber: 32
-=======
                                 lineNumber: 40
->>>>>>> Stashed changes
                             },
                             __self: this,
                             children: movie.Description
                         })
                     ]
                 }),
-<<<<<<< Updated upstream
-=======
                 /*#__PURE__*/ _jsxRuntime.jsxs("div", {
                     className: "movie-director",
                     __source: {
@@ -26049,18 +25834,13 @@ class MovieView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
->>>>>>> Stashed changes
                 /*#__PURE__*/ _jsxRuntime.jsx("button", {
                     onClick: ()=>{
                         onBackClick(null);
                     },
                     __source: {
                         fileName: "src/components/movie-view/movie-view.jsx",
-<<<<<<< Updated upstream
-                        lineNumber: 34
-=======
                         lineNumber: 54
->>>>>>> Stashed changes
                     },
                     __self: this,
                     children: "Back"
