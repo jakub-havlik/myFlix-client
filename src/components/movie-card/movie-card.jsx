@@ -1,7 +1,7 @@
 // movie-card is a child component of main-view
 
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 
 export class MovieCard extends React.Component {
@@ -26,14 +26,14 @@ export class MovieCard extends React.Component {
 
 
 MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
-    Rating: PropTypes.string.isRequired
+  movie: propTypes.shape({
+    Title: propTypes.string.isRequired,
+    Description: propTypes.string.isRequired,
+    ImagePath: propTypes.string.isRequired
   }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
+  onMovieClick: propTypes.func.isRequired
 };
+
 
 /*MovieCard.propTypes = {
   movieData: PropTypes.shape({
