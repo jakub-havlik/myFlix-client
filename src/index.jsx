@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MainView } from './components/main-view/main-view';
-<<<<<<< Updated upstream
-=======
 import Container from 'react-bootstrap/Container';
->>>>>>> Stashed changes
 
 // Import statement to indicate that you need to bundle `./index.scss`
 import './index.scss';
@@ -13,13 +10,9 @@ import './index.scss';
 class MyFlixApplication extends React.Component {
   render() {
     return (
-<<<<<<< Updated upstream
-      <MainView />
-=======
       <Container>
         <MainView />
       </Container>
->>>>>>> Stashed changes
     );
   }
 }
