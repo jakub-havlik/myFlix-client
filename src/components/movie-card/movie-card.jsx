@@ -1,7 +1,13 @@
 // movie-card is a child component of main-view
 
 import React from 'react';
+<<<<<<< Updated upstream
 import propTypes from 'prop-types';
+=======
+import PropTypes from 'prop-types';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+>>>>>>> Stashed changes
 
 
 export class MovieCard extends React.Component {
@@ -11,12 +17,28 @@ export class MovieCard extends React.Component {
     const { movieData, onMovieClick } = this.props;
 
     return (
+<<<<<<< Updated upstream
       <div onClick={() => onMovieClick(movieData)} className="movie-card">{movieData.Title}</div>
+=======
+      <Card>
+        <Card.Img variant="top" src={movieData.ImagePath} />
+        <Card.Body>
+          <Card.Title>{movieData.Title}</Card.Title>
+          <Card.Text>{movieData.Description}</Card.Text>
+          <Button onClick={() => onMovieClick(movieData)} variant="link">Open</Button>
+        </Card.Body>
+      </Card>
+>>>>>>> Stashed changes
     );
   }
 }
 
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 /*MovieCard.propTypes = {
   movieData: PropTypes.shape({
     Title: PropTypes.string
@@ -26,6 +48,7 @@ export class MovieCard extends React.Component {
 
 
 MovieCard.propTypes = {
+<<<<<<< Updated upstream
   movie: propTypes.shape({
     Title: propTypes.string.isRequired,
     Description: propTypes.string.isRequired,
@@ -35,6 +58,17 @@ MovieCard.propTypes = {
 };
 
 
+=======
+  movie: PropTypes.shape({
+    Title: PropTypes.string.isRequired,
+    Description: PropTypes.string.isRequired,
+    ImagePath: PropTypes.string.isRequired,
+    Rating: PropTypes.string.isRequired
+  }).isRequired,
+  onMovieClick: PropTypes.func.isRequired
+};
+
+>>>>>>> Stashed changes
 /*MovieCard.propTypes = {
   movieData: PropTypes.shape({
     Title: PropTypes.string.isRequired,
