@@ -42,6 +42,12 @@ export class MovieView extends React.Component {
         <div className="movie-director">
           <span className="label">Director: </span>
           <span className="value">{movie.Director.Name}</span>
+<<<<<<< Updated upstream
+=======
+          <Link to={`/directors/${movie.Director.Name}`}>
+            <Button variant="link">Director</Button>
+          </Link>
+>>>>>>> Stashed changes
         </div>
         <div className="movie-actors">
           <span className="label">Actors: </span>
@@ -50,6 +56,12 @@ export class MovieView extends React.Component {
         <div className="movie-genre">
           <span className="label">Genre(s): </span>
           <span className="value">{movie.Genre.Name.join(', ')}</span>
+<<<<<<< Updated upstream
+=======
+          <Link to={`/genres/${movie.Genre.Name}`}>
+            <Button variant="link">Genre</Button>
+          </Link>
+>>>>>>> Stashed changes
         </div>
         <button onClick={() => { onBackClick(null); }}>Back</button>
 
