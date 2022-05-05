@@ -20,7 +20,7 @@ export function DirectorView(props) {
         <h1 className="display-4">{props.director.Name}</h1>
       </div>
       <div>
-        <span className="value">Birthday: {props.director.Birthday}</span>
+        <span className="value">Birthday: {props.director.Birth}</span>
       </div>
       <div>
         <span className="value">{props.director.Bio}</span>
