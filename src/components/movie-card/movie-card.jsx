@@ -12,15 +12,16 @@ export class MovieCard extends React.Component {
   render() {
     // extracting the prop
     // movieData is the prop name
-    const { movieData } = this.props;
+    //const { movieData } = this.props;
+    const { movie } = this.props;
 
     return (
       <Card>
-        <Card.Img variant="top" src={movieData.ImagePath} />
+        <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
-          <Card.Title>{movieData.Title}</Card.Title>
-          <Card.Text>{movieData.Description}</Card.Text>
-          <Link to={`/movies/${movieData._id}`}>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Link to={`/movies/${movie._id}`}>
             <Button variant="link">Open</Button>
           </Link>
         </Card.Body>
