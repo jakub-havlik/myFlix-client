@@ -56,6 +56,14 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+
 
   getMovies(token) {
     axios.get('https://listapeli.herokuapp.com/movies', {
