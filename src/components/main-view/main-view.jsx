@@ -13,7 +13,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from '../profile-view/profile-view';
-import { UpdateUser } from '../profile-view/update-user';
+
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -131,14 +131,26 @@ export class MainView extends React.Component {
                 </Col>
               )
             }} />
-            <Route path={"/users/${user}"} render={({ history }) => {
-              if (!user) return <Redirect to="/" />
+
+
+            <Route exact path="/profile" render={({ history }) => {
+              if (!user) {
+                return (
+                  <Col>
+                    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                  </Col>
+                );
+              }
+
               return (
-                <Col xs={12} md={10}>
-                  <ProfileView user={user} movies={movies} onBackClick={() => history.goBack()} />
+                <Col md={8}>
+                  <ProfileView movies={movies} onBackClick={() => history.goBack()} />
                 </Col>
-              )
+              );
             }} />
+
+
+
             <Route path={"/directors/:name"} render={({ match, history }) => {
               if (!user) return <Redirect to="/" />
               // If movie list is empty (while movies load from API), display empty page
