@@ -40788,7 +40788,7 @@ function GenreView(props) {
                         lineNumber: 27
                     },
                     __self: this,
-                    children: props.genre.Name.join(",")
+                    children: props.genre.Name.join(", ")
                 })
             }),
             /*#__PURE__*/ _jsxRuntime.jsx("div", {
