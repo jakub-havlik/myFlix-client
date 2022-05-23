@@ -24,7 +24,7 @@ export function GenreView(props) {
       </div>
 
       <div>
-        <h1 className="display-4">{props.genre.Name.join(",")}</h1>
+        <h1 className="display-4">{props.genre.Name.join(", ")}</h1>
       </div>
       <div>
         <span className="value">{props.genre.Description.join(",")}</span>
