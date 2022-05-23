@@ -150,7 +150,17 @@ export class ProfileView extends React.Component {
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     if (!Username) {
+<<<<<<< Updated upstream
       return null;
+=======
+      return (
+        <div className="d-flex justify-content-center mt-5">
+          <div className="spinner-border text-light" style={{ width: "3rem", height: "3rem" }} role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      )
+>>>>>>> Stashed changes
     }
 
     return (
@@ -218,9 +228,15 @@ export class ProfileView extends React.Component {
                       required
                     />
                   </FormGroup>
+<<<<<<< Updated upstream
                   <div>
                     <Button variant="success" type="submit" onClick={this.editUser}>Update Data</Button>
                     <Button variant="secondary" onClick={() => this.onDeleteUser()}>Delete Profile</Button>
+=======
+                  <div className="mt-4">
+                    <Button variant="success" className="mr-3" type="submit" onClick={this.editUser}>Update Data</Button>
+                    <Button variant="danger" onClick={() => this.onDeleteUser()}>Delete Profile</Button>
+>>>>>>> Stashed changes
                   </div>
                 </Form>
               </Card.Body>
@@ -272,8 +288,13 @@ ProfileView.propTypes = {
     Description: PropTypes.string.isRequired,
     ImagePath: PropTypes.string.isRequired,
     Genre: PropTypes.shape({
+<<<<<<< Updated upstream
       Name: PropTypes.string.isRequired,
       Description: PropTypes.string.isRequired,
+=======
+      Name: PropTypes.array.isRequired,
+      Description: PropTypes.array.isRequired,
+>>>>>>> Stashed changes
     }).isRequired,
     Director: PropTypes.shape({
       Bio: PropTypes.string.isRequired,
