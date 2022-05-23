@@ -31,11 +31,7 @@ export function LoginView(props) {
 
 
   return (
-<<<<<<< Updated upstream
-    <Form className="m-5">
-=======
     <Form className="m-5" style={{ color: 'white' }}>
->>>>>>> Stashed changes
       <Form.Group className="mb-3" controlId="formUsername">
         <Form.Label>Username:</Form.Label>
         <Form.Control type="text" disabled={isLoading} placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />

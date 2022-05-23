@@ -1,22 +1,4 @@
 import React from 'react';
-<<<<<<< Updated upstream
-
-import { MovieCard } from '../movie-card/movie-card';
-
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-
-import { Link } from 'react-router-dom';
-
-export function DirectorView(props) {
-  return (
-    <>
-
-      <div>
-        <Button variant="outline-light" onClick={() => { props.onBackClick() }}>Back</Button>
-      </div>
-=======
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -27,34 +9,21 @@ import { MovieCard } from '../movie-card/movie-card';
 export function DirectorView(props) {
   return (
     <div className="director-view" style={{ color: 'white' }}>
->>>>>>> Stashed changes
 
       <div>
         <h1 className="display-4">{props.director.Name}</h1>
       </div>
       <div>
-<<<<<<< Updated upstream
-        <span className="value">Birthday: {props.director.Birth}</span>
-=======
         <span className="value">*{props.director.Birth}</span>
->>>>>>> Stashed changes
       </div>
       <div>
         <span className="value">{props.director.Bio}</span>
       </div>
       <br />
       <div>
-<<<<<<< Updated upstream
-        <h4>Some movies from this director:</h4>
-      </div>
-
-
-
-=======
         <h4>other movies by {props.director.Name}:</h4>
       </div>
 
->>>>>>> Stashed changes
       <Row className="justify-content-md-center">
         {props.movies.filter(m => m.Director.Name === props.director.Name).map(m => (
           <Col xs={12} sm={6} md={4} className="d-flex" key={m._id}>
@@ -63,20 +32,10 @@ export function DirectorView(props) {
         ))}
       </Row>
 
-<<<<<<< Updated upstream
-
-
-
-      <Link to={"/"}>
-        <Button variant="outline-light">Back to full list</Button>
-      </Link>
-    </>
-=======
       <Link to={"/"}>
         <Button variant="outline-light">Back to full list</Button>
       </Link>
 
     </div>
->>>>>>> Stashed changes
   )
 }
