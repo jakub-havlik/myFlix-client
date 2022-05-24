@@ -1,15 +1,13 @@
 import React from "react";
-
-import "./profile-view.scss";
 import PropTypes from "prop-types";
-
 import { Container, Card, Button, Row, Col, Form, FormGroup, FormControl } from "react-bootstrap";
 import axios from "axios";
+import "./profile-view.scss";
+
 
 export class ProfileView extends React.Component {
   constructor() {
     super();
-
     this.state = {
       Username: null,
       Password: null,
@@ -19,10 +17,12 @@ export class ProfileView extends React.Component {
     };
   }
 
+
   componentDidMount() {
     const accessToken = localStorage.getItem('token');
     this.getUser(accessToken);
   }
+
 
   onLoggedOut() {
     localStorage.removeItem('token');
@@ -32,6 +32,7 @@ export class ProfileView extends React.Component {
     });
     window.open('/', '_self');
   }
+
 
   getUser(token) {
     const Username = localStorage.getItem('user');
