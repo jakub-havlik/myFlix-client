@@ -19,7 +19,7 @@ export function GenreView(props) {
       </div>
       <br />
       <div>
-        <h4>Some movies in this genre:</h4>
+        <h4>other movies in this genre:</h4>
       </div>
 
       <Row className="justify-content-md-center">
