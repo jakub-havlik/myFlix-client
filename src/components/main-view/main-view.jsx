@@ -2,13 +2,11 @@
 
 import React from "react";
 import axios from "axios";
-
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
 } from "react-router-dom";
-
 import { Navbar } from "../navbar/navbar";
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -17,10 +15,9 @@ import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from "../profile-view/profile-view";
-
 import { Container, Row, Col } from "react-bootstrap";
-
 import "./main-view.scss";
+
 
 export class MainView extends React.Component {
   constructor() {
@@ -34,6 +31,7 @@ export class MainView extends React.Component {
     this.addMovieToFavorites = this.addMovieToFavorites.bind(this);
   }
 
+
   // When token is present (user is logged in), get list of movies
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
@@ -45,18 +43,18 @@ export class MainView extends React.Component {
     }
   }
 
-  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
 
+  /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
       user: authData.user.Username,
     });
-
     localStorage.setItem("token", authData.token);
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
   }
+
 
   onLoggedOut() {
     localStorage.removeItem("token");
@@ -65,6 +63,7 @@ export class MainView extends React.Component {
       user: null,
     });
   }
+
 
   getMovies(token) {
     axios
@@ -76,7 +75,6 @@ export class MainView extends React.Component {
           ({ Title, Description, ImagePath }) =>
             Title && Description && ImagePath
         );
-
         this.setState({
           movies,
         });
@@ -86,11 +84,13 @@ export class MainView extends React.Component {
       });
   }
 
+
   addMovieToFavorites(movieId) {
     return axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
       {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
     )
   }
+
 
   render() {
     const { movies, user } = this.state;
@@ -100,6 +100,7 @@ export class MainView extends React.Component {
         <Navbar user={user} />
         <Container>
           <Row className="main-view justify-content-md-center">
+
             <Route
               exact
               path="/"
@@ -112,7 +113,6 @@ export class MainView extends React.Component {
                       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
-
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return (
                   <div className="d-flex justify-content-center mt-5">
@@ -121,7 +121,6 @@ export class MainView extends React.Component {
                     </div>
                   </div>
                 );
-
                 return movies.map((m) => (
                   <Col xs={12} sm={6} md={4} lg={3} className="d-flex mt-3" key={m._id}>
                     <MovieCard movie={m} />
@@ -149,7 +148,8 @@ export class MainView extends React.Component {
                     <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} addMovieToFavorites={this.addMovieToFavorites} />
                   </Col>
                 )
-              }} />
+              }}
+            />
 
             <Route
               exact
@@ -162,7 +162,6 @@ export class MainView extends React.Component {
                     </Col>
                   );
                 }
-
                 return (
                   <Col md={8}>
                     <ProfileView
@@ -195,6 +194,7 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
             <Route
               path={"/genres/:name"}
               render={({ match, history }) => {
@@ -217,6 +217,7 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
           </Row>
         </Container>
       </Router>
