@@ -6,7 +6,6 @@ import axios from "axios";
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
   Redirect,
 } from "react-router-dom";
 
@@ -32,6 +31,7 @@ export class MainView extends React.Component {
       // Set initial user state to null, used for user login --> Default is logged out
       user: null,
     };
+    this.addMovieToFavorites = this.addMovieToFavorites.bind(this);
   }
 
   // When token is present (user is logged in), get list of movies
@@ -86,6 +86,12 @@ export class MainView extends React.Component {
       });
   }
 
+  addMovieToFavorites(movieId) {
+    return axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
+      {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+    )
+  }
+
   render() {
     const { movies, user } = this.state;
 
@@ -108,17 +114,16 @@ export class MainView extends React.Component {
                   );
 
                 // If movie list is empty (while movies load from API), display empty page
-                if (movies.length === 0) return <div className="main-view" />;
+                if (movies.length === 0) return (
+                  <div className="d-flex justify-content-center mt-5">
+                    <div className="spinner-border text-light" style={{ width: "3rem", height: "3rem" }} role="status">
+                      <span className="sr-only">Loading...</span>
+                    </div>
+                  </div>
+                );
 
                 return movies.map((m) => (
-                  <Col
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    className="d-flex"
-                    key={m._id}
-                  >
+                  <Col xs={12} sm={6} md={4} lg={3} className="d-flex mt-3" key={m._id}>
                     <MovieCard movie={m} />
                   </Col>
                 ));
@@ -136,19 +141,15 @@ export class MainView extends React.Component {
                 );
               }}
             />
+
             <Route
-              path="/movies/:movieId"
-              render={({ match, history }) => {
+              path="/movie/:movieId" render={({ match, history }) => {
                 return (
                   <Col xs={12} md={10}>
-                    <MovieView
-                      movie={movies.find((m) => m._id === match.params.movieId)}
-                      onBackClick={() => history.goBack()}
-                    />
+                    <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} addMovieToFavorites={this.addMovieToFavorites} />
                   </Col>
-                );
-              }}
-            />
+                )
+              }} />
 
             <Route
               exact
