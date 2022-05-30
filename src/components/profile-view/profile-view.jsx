@@ -56,6 +56,7 @@ export class ProfileView extends React.Component {
 
   editUser = (e) => {
     e.preventDefault();
+    console.log(this.state)
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
@@ -89,7 +90,7 @@ export class ProfileView extends React.Component {
     const Username = localStorage.getItem('user');
     const token = localStorage.getItem('token');
 
-    axios.delete(`https://listapeli.herokuapp.com/users/${Username}/movies/${movie._id}`,
+    axios.delete(`https://listapeli.herokuapp.com/users/${Username}/movies/${movies._id}`,
       {
         headers: { Authorization: `Bearer ${token}` }
       }
@@ -198,6 +199,7 @@ export class ProfileView extends React.Component {
                       name="Password"
                       placeholder="New Password"
                       value=""
+                      //value={Password}
                       onChange={(e) => this.setPassword(e.target.value)}
                       required
                     />
@@ -221,7 +223,7 @@ export class ProfileView extends React.Component {
                       type="date"
                       name="Birthday"
                       value={Birthday}
-                      onChange={(e) => this.setBirthdaye(e.target.value)}
+                      onChange={(e) => this.setBirthday(e.target.value)}
                       required
                     />
                   </FormGroup>
