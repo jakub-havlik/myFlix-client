@@ -12,10 +12,10 @@ export function GenreView(props) {
     <div className="genre-view" style={{ color: 'white' }}>
 
       <div>
-        <h1 className="display-4">{props.genre.Name.join(", ")}</h1>
+        <h1 className="display-4">{props.genre.Name}</h1>
       </div>
       <div>
-        <span className="value">{props.genre.Description.join(",")}</span>
+        <span className="value">{props.genre.Description}</span>
       </div>
       <br />
       <div>
