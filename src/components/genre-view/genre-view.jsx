@@ -24,7 +24,10 @@ export function GenreView(props) {
 
       <Row className="justify-content-md-center">
         {props.movies
-          .filter((m) => m.Genre.Name === props.genre.Name)
+          // here you can specify how you want to filter "other movies in this genre:"
+          // e.g. movies which contain just one of genres from the array of genres
+          //.filter((m) => m.Genre.Name === props.genre.Name)
+          .filter((m) => true)
           .map((m) => (
             <Col xs={12} sm={6} md={4} className="d-flex" key={m._id}>
               <MovieCard movie={m} />
