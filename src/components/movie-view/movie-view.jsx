@@ -45,8 +45,20 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
+    const items = [];
+
+    for (const [index, value] of movie.Genre.Name.entries()) {
+      items.push(
+        <Link to={`/genres/${value}`}>
+          {value}
+          <span>, </span>
+        </Link>
+      );
+    }
+
     return (
       <div className="movie-view" style={{ color: 'white' }}>
+
         <Button className="mr-3" variant="link" onClick={() => {
           onBackClick(null);
         }}><span style={{ fontSize: '20px' }}>←</span> Back</Button>
@@ -78,17 +90,20 @@ export class MovieView extends React.Component {
         </div>
         <div className="movie-genre">
           <span className="label">Genre(s): </span>
+          {/*here the values pushed to the array "items" are returned*/}
+          {/*see the for-loop above*/}
+          {items}
 
-          <Link to={`/genres/${movie.Genre.Name[0]}`}>
-            {movie.Genre.Name[0]}
-            <span>, </span>
-          </Link>
-          <Link to={`/genres/${movie.Genre.Name[1]}`}>
-            {movie.Genre.Name[1]}
-          </Link>
-          <Link to={`/genres/${movie.Genre.Name[2]}`}>
-            {movie.Genre.Name[2]}
-          </Link>
+          {/*instead of for loop you can also use map() to achieve the same result*/}
+          {/*
+            movie.Genre.Name.map((s) => (
+              <Link to={`/genres/${s}`}>
+                {s}
+                <span>, </span>
+              </Link>
+            ))
+            */}
+
         </div>
 
         <Button className="mt-4" variant="primary" type="submit" disabled={this.state.isLoading || this.state.hasBeenAddedToFavorites} onClick={() => {
