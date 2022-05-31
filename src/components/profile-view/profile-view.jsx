@@ -72,6 +72,7 @@ export class ProfileView extends React.Component {
       }
     )
       .then((response) => {
+        console.log(response);
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
@@ -198,8 +199,8 @@ export class ProfileView extends React.Component {
                       type="password"
                       name="Password"
                       placeholder="New Password"
-                      value=""
-                      //value={Password}
+                      //value=""
+                      value={this.Password}
                       onChange={(e) => this.setPassword(e.target.value)}
                       required
                     />
