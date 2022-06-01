@@ -3,10 +3,14 @@
 
 import React from 'react';
 import Col from 'react-bootstrap/Col';
+import PropTypes from 'prop-types';
+// react redux
 import { connect } from 'react-redux';
-
+// import components
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
 import { MovieCard } from '../movie-card/movie-card';
+
+
 
 const mapStateToProps = state => {
   const { visibilityFilter } = state;
@@ -34,6 +38,17 @@ function MoviesList(props) {
     ))}
   </>;
 }
+
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      filter: PropTypes.func
+    })
+  ),
+  visibilityFilter: PropTypes.string
+};
+
 
 // connect function connects this component to the store
 export default connect(mapStateToProps)(MoviesList);

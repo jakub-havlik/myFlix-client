@@ -1,8 +1,13 @@
 import React from "react";
+import axios from "axios";
 import PropTypes from "prop-types";
 import { Container, Card, Button, Row, Col, Form, FormGroup, FormControl } from "react-bootstrap";
-import axios from "axios";
+// react redux
+import { connect } from 'react-redux';
+import { remFavMovie } from '../../actions/actions';
+// styling
 import "./profile-view.scss";
+
 
 
 export class ProfileView extends React.Component {
@@ -148,6 +153,14 @@ export class ProfileView extends React.Component {
     });
   }
 
+  // ??????????????????????????????
+  //how to make placeholder for birthday? (the actual value)
+  getBirthdayValue = () => {
+    if (this.state.Birthday) return this.state.Birthday.split('T')[0]
+    return ''
+  }
+  // ????????????????????????????????????
+
   render() {
     const { movies, onBackClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
@@ -198,8 +211,7 @@ export class ProfileView extends React.Component {
                     <FormControl
                       type="password"
                       name="Password"
-                      placeholder="New Password"
-                      //value=""
+                      placeholder="Enter New Password"
                       value={this.Password}
                       onChange={(e) => this.setPassword(e.target.value)}
                       required
@@ -223,6 +235,7 @@ export class ProfileView extends React.Component {
                     <FormControl
                       type="date"
                       name="Birthday"
+                      // placeholder
                       value={Birthday}
                       onChange={(e) => this.setBirthday(e.target.value)}
                       required
@@ -294,3 +307,12 @@ ProfileView.propTypes = {
   })).isRequired,
   onBackClick: PropTypes.func.isRequired
 };
+
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { remFavMovie })(ProfileView);

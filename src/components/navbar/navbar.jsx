@@ -1,10 +1,15 @@
 import React from 'react';
 import { Navbar, Container, Nav, Button } from 'react-bootstrap';
-
 import { Link } from 'react-router-dom';
-//import './nav-bar.scss';
+// react redux
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+// styling
+//import './navbar.scss';
 
-export function Navbar({ user }) {
+
+
+export function MenuBar({ user }) {
   const onLoggedOut = () => {
     localStorage.clear();
     window.open('/', '_self');
@@ -51,3 +56,13 @@ export function Navbar({ user }) {
     </Navbar>
   );
 }
+
+
+let mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    user: state.user
+  };
+}
+
+export default connect(mapStateToProps, { setUser })(MenuBar);

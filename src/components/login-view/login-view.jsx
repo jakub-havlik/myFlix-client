@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Form, Button } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+// react redux
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+// styling
+import './login-view.scss';
+
+
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -51,6 +58,26 @@ export function LoginView(props) {
 
 }
 
+
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired
+  }),
+  onLoggedIn: PropTypes.func.isRequired
+}
+
+
+// mapping the state of this component to its props
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  };
+}
+
+// connect function connects this component to the store
+export default connect(mapStateToProps, { setUser })(LoginView);
 
 
 

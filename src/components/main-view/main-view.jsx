@@ -1,26 +1,30 @@
 // main-view is the root component
+// it imports other components
 
 import React from "react";
 import axios from "axios";
-import { connect } from 'react-redux';
+import { Container, Row, Col } from "react-bootstrap";
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
 } from "react-router-dom";
-// import redux actions
-import { setMovies } from '../../actions/actions';
+// react redux
+import { connect } from 'react-redux';
+import {
+  setMovies,
+  setUser
+} from '../../actions/actions';
 // import components
 import MoviesList from '../movies-list/movies-list';
-import { Navbar } from "../navbar/navbar";
+import { MenuBar } from "../navbar/navbar";
 import { LoginView } from "../login-view/login-view";
-//import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view/genre-view";
 import { ProfileView } from "../profile-view/profile-view";
-import { Container, Row, Col } from "react-bootstrap";
+// styling
 import "./main-view.scss";
 
 
@@ -60,7 +64,6 @@ class MainView extends React.Component {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
-        // #4
         /* instead of passing the movies to the state we pass movies to the props */
         this.props.setMovies(response.data);
       })
@@ -119,7 +122,7 @@ class MainView extends React.Component {
 
     return (
       <Router>
-        <Navbar user={user} />
+        <MenuBar user={user} />
         <Container>
           <Row className="main-view justify-content-md-center">
 
@@ -245,9 +248,25 @@ class MainView extends React.Component {
   }
 }
 
+
 // mapping the state of this component to its props
-let mapStateToProps = state => {
-  return { movies: state.movies }
+let mapStateToProps = store => {
+  return {
+    movies: store.movies,
+    user: store.user
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setUser: (user) => {
+      dispatch(setUser(user))
+    },
+    setMovies: (movies) => {
+      dispatch(setMovies(movies))
+    }
+  }
 }
 
 // connect function connects this component to the store
@@ -255,7 +274,7 @@ let mapStateToProps = state => {
 // then, it is passed as the movies prop for the MainView component
 // connect() function is a HOC (higher-order component)
 // it takes a component and returns a new component
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);
 
 
 
