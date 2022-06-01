@@ -2,14 +2,19 @@
 
 import React from "react";
 import axios from "axios";
+import { connect } from 'react-redux';
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
 } from "react-router-dom";
+// import redux actions
+import { setMovies } from '../../actions/actions';
+// import components
+import MoviesList from '../movies-list/movies-list';
 import { Navbar } from "../navbar/navbar";
 import { LoginView } from "../login-view/login-view";
-import { MovieCard } from "../movie-card/movie-card";
+//import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { DirectorView } from "../director-view/director-view";
@@ -19,16 +24,22 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./main-view.scss";
 
 
-export class MainView extends React.Component {
+
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      // Creating an empty array to hold movie data from database
-      movies: [],
       // Set initial user state to null, used for user login --> Default is logged out
-      user: null,
+      user: null
     };
     this.addMovieToFavorites = this.addMovieToFavorites.bind(this);
+  }
+
+
+  addMovieToFavorites(movieId) {
+    return axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
+      {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
+    )
   }
 
 
@@ -42,6 +53,41 @@ export class MainView extends React.Component {
       this.getMovies(accessToken);
     }
   }
+
+
+  getMovies(token) {
+    axios.get('https://listapeli.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // #4
+        /* instead of passing the movies to the state we pass movies to the props */
+        this.props.setMovies(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  // old version before using redux
+  /*getMovies(token) {
+    axios
+      .get("https://listapeli.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        const movies = response.data.filter(
+          ({ Title, Description, ImagePath }) =>
+            Title && Description && ImagePath
+        );
+        this.setState({
+          movies,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }*/
 
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
@@ -65,35 +111,11 @@ export class MainView extends React.Component {
   }
 
 
-  getMovies(token) {
-    axios
-      .get("https://listapeli.herokuapp.com/movies", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        const movies = response.data.filter(
-          ({ Title, Description, ImagePath }) =>
-            Title && Description && ImagePath
-        );
-        this.setState({
-          movies,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
-
-
-  addMovieToFavorites(movieId) {
-    return axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
-      {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-    )
-  }
-
 
   render() {
-    const { movies, user } = this.state;
+    // movies is extracted from this.props rather than from this.state
+    let { movies } = this.props;
+    let { user } = this.state;
 
     return (
       <Router>
@@ -121,13 +143,11 @@ export class MainView extends React.Component {
                     </div>
                   </div>
                 );
-                return movies.map((m) => (
-                  <Col xs={12} sm={6} md={4} lg={3} className="d-flex mt-3" key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ));
+                return <MoviesList movies={movies} />;
               }}
             />
+
+            {/* The rest of routes */}
 
             <Route
               path="/register"
@@ -224,3 +244,18 @@ export class MainView extends React.Component {
     );
   }
 }
+
+// mapping the state of this component to its props
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+// connect function connects this component to the store
+// the movies state is extracted from the store through the connect() function
+// then, it is passed as the movies prop for the MainView component
+// connect() function is a HOC (higher-order component)
+// it takes a component and returns a new component
+export default connect(mapStateToProps, { setMovies })(MainView);
+
+
+
