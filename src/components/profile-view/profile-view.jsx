@@ -155,10 +155,10 @@ export class ProfileView extends React.Component {
 
   // ??????????????????????????????
   //how to make placeholder for birthday? (the actual value)
-  getBirthdayValue = () => {
+  /*getBirthdayValue = () => {
     if (this.state.Birthday) return this.state.Birthday.split('T')[0]
     return ''
-  }
+  }*/
   // ????????????????????????????????????
 
   render() {
@@ -235,7 +235,6 @@ export class ProfileView extends React.Component {
                     <FormControl
                       type="date"
                       name="Birthday"
-                      // placeholder
                       value={Birthday}
                       onChange={(e) => this.setBirthday(e.target.value)}
                       required
@@ -307,6 +306,9 @@ ProfileView.propTypes = {
   })).isRequired,
   onBackClick: PropTypes.func.isRequired
 };
+
+
+
 
 
 const mapStateToProps = (state) => {

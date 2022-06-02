@@ -45,16 +45,37 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
-    const items = [];
-
-    for (const [index, value] of movie.Genre.Name.entries()) {
-      items.push(
-        <Link to={`/genres/${value}`}>
-          {value}
-          <span>, </span>
-        </Link>
+    ///////////// ??????????????
+    // should I define an array or an object here?
+    // if movie has multiple genres change label "Genre:" to "Genres"
+    const genrePlural = [];
+    if (movie.Genre.Name.length === 1) {
+      genrePlural.push(
+        <span>Genre:</span>
+      );
+    } else {
+      genrePlural.push(
+        <span>Genres:</span>
       );
     }
+
+    //////////////////////// ????????????????
+    // how to exclude comma behind the last word?
+    // if only one movie is represented by the genre, it throws an error
+    const items = [];
+    for (const [index, value] of movie.Genre.Name.entries()) {
+      items.push(
+        <span>
+          <Link to={`/genres/${value}`}>
+            {value}
+          </Link>
+          , </span>
+      );
+      console.log(items);
+      console.log("hello");
+      console.log(items.length)
+    }
+
 
     return (
       <div className="movie-view" style={{ color: 'white' }}>
@@ -89,7 +110,7 @@ export class MovieView extends React.Component {
           <span className="value">{movie.Actors.join(', ')}</span>
         </div>
         <div className="movie-genre">
-          <span className="label">Genre(s): </span>
+          <span className="label">{genrePlural} </span>
           {/*here the values pushed to the array "items" are returned*/}
           {/*see the for-loop above*/}
           {items}

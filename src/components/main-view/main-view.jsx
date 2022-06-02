@@ -224,7 +224,7 @@ class MainView extends React.Component {
                 if (!user) return <Redirect to="/" />;
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return <div className="main-view" />;
-                // console.log(movies[0].Genre.Name.join(","));
+                //console.log(movies[0].Genre.Name.join(","));
                 return (
                   <Col xs={12} md={10}>
                     <GenreView
@@ -249,11 +249,12 @@ class MainView extends React.Component {
 }
 
 
+
 // mapping the state of this component to its props
-let mapStateToProps = store => {
+let mapStateToProps = state => {
   return {
-    movies: store.movies,
-    user: store.user
+    movies: state.movies,
+    user: state.user
   }
 }
 
