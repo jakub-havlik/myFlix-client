@@ -1,14 +1,21 @@
 import React from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { Container, Card, Button, Row, Col, Form, FormGroup, FormControl } from "react-bootstrap";
+import {
+  Container,
+  Card,
+  Button,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  FormControl,
+} from "react-bootstrap";
 // react redux
-import { connect } from 'react-redux';
-import { remFavMovie } from '../../actions/actions';
+import { connect } from "react-redux";
+import { remFavMovie } from "../../actions/actions";
 // styling
 import "./profile-view.scss";
-
-
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -18,40 +25,38 @@ export class ProfileView extends React.Component {
       Password: null,
       Email: null,
       Birthday: null,
-      FavoriteMovies: []
+      FavoriteMovies: [],
     };
   }
 
-
   componentDidMount() {
-    const accessToken = localStorage.getItem('token');
+    const accessToken = localStorage.getItem("token");
     this.getUser(accessToken);
   }
 
-
   onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     this.setState({
-      user: null
+      user: null,
     });
-    window.open('/', '_self');
+    window.open("/", "_self");
   }
 
-
   getUser(token) {
-    const Username = localStorage.getItem('user');
+    const Username = localStorage.getItem("user");
 
-    axios.get(`https://listapeli.herokuapp.com/users/${Username}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
+    axios
+      .get(`https://listapeli.herokuapp.com/users/${Username}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
         this.setState({
           Username: response.data.Username,
-          Password: response.data.Password,
+          Password: "",
           Email: response.data.Email,
           Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies
+          FavoriteMovies: response.data.FavoriteMovies,
         });
       })
       .catch(function (error) {
@@ -61,46 +66,59 @@ export class ProfileView extends React.Component {
 
   editUser = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    const Username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
+    console.log(this.state);
+    const Username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
 
-    axios.put(`https://listapeli.herokuapp.com/users/${Username}`,
-      {
+    // this prevents from sending an empty password when updating other user data
+    let payload = {};
+    if (this.state.Password == "") {
+      payload = {
+        Username: this.state.Username,
+        Email: this.state.Email,
+        Birthday: this.state.Birthday,
+      };
+    } else {
+      payload = {
         Username: this.state.Username,
         Password: this.state.Password,
         Email: this.state.Email,
-        Birthday: this.state.Birthday
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }
-    )
+        Birthday: this.state.Birthday,
+      };
+    }
+
+    axios
+      .put(`https://listapeli.herokuapp.com/users/${Username}`, payload, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         console.log(response);
         this.setState({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
-          Birthday: response.data.Birthday
+          Birthday: response.data.Birthday,
         });
 
-        localStorage.setItem('user', this.state.Username);
+        localStorage.setItem("user", this.state.Username);
         alert("Profile updated");
-        window.open('/profile', '_self');
+        window.open("/profile", "_self");
       });
   };
 
+
   onRemoveFavorite = (e, movies) => {
     e.preventDefault();
-    const Username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
+    const Username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
 
-    axios.delete(`https://listapeli.herokuapp.com/users/${Username}/movies/${movies._id}`,
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      }
-    )
+    axios
+      .delete(
+        `https://listapeli.herokuapp.com/users/${Username}/movies/${movies._id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
         console.log(response);
         alert("Movie removed");
@@ -109,20 +127,21 @@ export class ProfileView extends React.Component {
       .catch(function (error) {
         console.log(error);
       });
-  }
+  };
 
   onDeleteUser() {
-    const Username = localStorage.getItem('user');
-    const token = localStorage.getItem('token');
+    const Username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
 
-    axios.delete(`https://listapeli.herokuapp.com/users/${Username}`, {
-      headers: { Authorization: `Bearer ${token}` }
-    })
+    axios
+      .delete(`https://listapeli.herokuapp.com/users/${Username}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
       .then((response) => {
         console.log(response);
         alert("Profile deleted");
-        localStorage.removeItem('user');
-        localStorage.removeItem('token');
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
       })
       .catch(function (error) {
         console.log(error);
@@ -131,25 +150,25 @@ export class ProfileView extends React.Component {
 
   setUsername(value) {
     this.setState({
-      Username: value
+      Username: value,
     });
   }
 
   setPassword(value) {
     this.setState({
-      Password: value
+      Password: value,
     });
   }
 
   setEmail(value) {
     this.setState({
-      Email: value
+      Email: value,
     });
   }
 
   setBirthday(value) {
     this.setState({
-      Birthday: value
+      Birthday: value,
     });
   }
 
@@ -164,16 +183,6 @@ export class ProfileView extends React.Component {
   render() {
     const { movies, onBackClick } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
-
-    if (!Username) {
-      return (
-        <div className="d-flex justify-content-center mt-5">
-          <div className="spinner-border text-light" style={{ width: "3rem", height: "3rem" }} role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-        </div>
-      )
-    }
 
     return (
       <Container>
@@ -241,8 +250,20 @@ export class ProfileView extends React.Component {
                     />
                   </FormGroup>
                   <div className="mt-4">
-                    <Button variant="success" className="mr-3" type="submit" onClick={this.editUser}>Update Data</Button>
-                    <Button variant="danger" onClick={() => this.onDeleteUser()}>Delete Profile</Button>
+                    <Button
+                      variant="success"
+                      className="mr-3"
+                      type="submit"
+                      onClick={this.editUser}
+                    >
+                      Update Data
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => this.onDeleteUser()}
+                    >
+                      Delete Profile
+                    </Button>
                   </div>
                 </Form>
               </Card.Body>
@@ -258,63 +279,69 @@ export class ProfileView extends React.Component {
                   <div className="text-center">No favorite movies</div>
                 )}
                 <Row className="favorite-movies-container">
-                  {FavoriteMovies.length > 0 && movies.map((movie) => {
-                    if (movie._id === FavoriteMovies.find((fav) => fav === movie._id)
-                    ) {
-                      return (
-                        <Card className="favorite-movie" key={movie._id} >
-                          <Card.Img
-                            className="favorite-movie-image"
-                            variant="top"
-                            src={movie.ImagePath}
-                          />
-                          <Card.Body>
-                            <Card.Title className="movie-title">
-                              {movie.Title}
-                            </Card.Title>
-                            <Button value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove from List</Button>
-                          </Card.Body>
-                        </Card>
-                      );
-                    }
-                  })}
+                  {FavoriteMovies.length > 0 &&
+                    movies.map((movie) => {
+                      if (
+                        movie._id ===
+                        FavoriteMovies.find((fav) => fav === movie._id)
+                      ) {
+                        return (
+                          <Card className="favorite-movie" key={movie._id}>
+                            <Card.Img
+                              className="favorite-movie-image"
+                              variant="top"
+                              src={movie.ImagePath}
+                            />
+                            <Card.Body>
+                              <Card.Title className="movie-title">
+                                {movie.Title}
+                              </Card.Title>
+                              <Button
+                                value={movie._id}
+                                onClick={(e) => this.onRemoveFavorite(e, movie)}
+                              >
+                                Remove from List
+                              </Button>
+                            </Card.Body>
+                          </Card>
+                        );
+                      }
+                    })}
                 </Row>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
-    )
+    );
   }
 }
 
 ProfileView.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.array.isRequired,
-      Description: PropTypes.array.isRequired,
-    }).isRequired,
-    Director: PropTypes.shape({
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string.isRequired,
-      Name: PropTypes.string.isRequired,
-    }).isRequired,
-  })).isRequired,
-  onBackClick: PropTypes.func.isRequired
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      Title: PropTypes.string.isRequired,
+      Description: PropTypes.string.isRequired,
+      ImagePath: PropTypes.string.isRequired,
+      Genre: PropTypes.shape({
+        Name: PropTypes.array.isRequired,
+        Description: PropTypes.array.isRequired,
+      }).isRequired,
+      Director: PropTypes.shape({
+        Bio: PropTypes.string.isRequired,
+        Birth: PropTypes.string.isRequired,
+        Death: PropTypes.string.isRequired,
+        Name: PropTypes.string.isRequired,
+      }).isRequired,
+    })
+  ).isRequired,
+  onBackClick: PropTypes.func.isRequired,
 };
-
-
-
-
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user
-  }
-}
+    user: state.user,
+  };
+};
 
 export default connect(mapStateToProps, { remFavMovie })(ProfileView);
