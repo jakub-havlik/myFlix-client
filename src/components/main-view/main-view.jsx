@@ -17,7 +17,7 @@ import {
 } from '../../actions/actions';
 // import components
 import MoviesList from '../movies-list/movies-list';
-import { MenuBar } from "../navbar/navbar";
+import { MenuBar } from "../menubar/menubar";
 import { LoginView } from "../login-view/login-view";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
