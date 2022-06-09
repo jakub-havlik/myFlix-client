@@ -8,16 +8,13 @@ import { MovieCard } from '../movie-card/movie-card';
 
 export function DirectorView(props) {
 
-  ///////////// ??????????????
-  // should I define an array or an object here?
+  // if director bio inlcudes data about death 
   const items = [];
   if (props.director.Death != "") {
     items.push(
       <span>† {props.director.Death}</span>
     );
   }
-
-
 
   return (
     <div className="director-view" style={{ color: 'white' }}>
