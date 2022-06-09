@@ -8,6 +8,7 @@ import { MovieCard } from "../movie-card/movie-card";
 
 export function GenreView(props) {
   //console.log(props);
+
   return (
     <div className="genre-view" style={{ color: 'white' }}>
 
@@ -25,17 +26,25 @@ export function GenreView(props) {
       <Row className="justify-content-md-center">
         {props.movies
           // here you can specify how you want to filter "other movies in this genre:"
-          // e.g. movies which contain just one of genres from the array of genres
 
+          // display movies which contain all the genres in the array of genres
           //.filter((m) => m.Genre.Name === props.genre.Name)
-          .filter((m) => m.Genre.Name.includes(props.genre.Name))
-          //.filter((m) => true)
+
+          // display movies which contain just one of genres from the array of genres
+          .filter((m) => {
+            for (var i = 0; i < m.Genre.Name.length; i++) {
+              if (m.Genre.Name[i] == props.genre.Name) {
+                return true;
+              }
+            }
+          })
 
           .map((m) => (
             <Col xs={12} sm={6} md={4} className="d-flex" key={m._id}>
               <MovieCard movie={m} />
             </Col>
           ))}
+
       </Row>
 
       <Link to={"/"}>
