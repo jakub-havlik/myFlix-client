@@ -45,9 +45,7 @@ export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
 
-    ///////////// ??????????????
-    // should I define an array or an object here?
-    // if movie has multiple genres change label "Genre:" to "Genres"
+    // if movie has multiple genres change label "Genre:" to "Genres:"
     const genrePlural = [];
     if (movie.Genre.Name.length === 1) {
       genrePlural.push(
@@ -71,9 +69,6 @@ export class MovieView extends React.Component {
           </Link>
           , </span>
       );
-      console.log(items);
-      console.log("hello");
-      console.log(items.length)
     }
 
 
