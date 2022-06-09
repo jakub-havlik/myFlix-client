@@ -55,7 +55,8 @@ export class ProfileView extends React.Component {
           Username: response.data.Username,
           Password: "",
           Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          // you should get the Birthday value after the user data has been loaded from the backend
+          Birthday: response.data.Birthday.split('T')[0],
           FavoriteMovies: response.data.FavoriteMovies,
         });
       })
@@ -63,6 +64,7 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
+
 
   editUser = (e) => {
     e.preventDefault();
@@ -129,9 +131,16 @@ export class ProfileView extends React.Component {
       });
   };
 
+  getBirthdayValue = () => {
+    if (this.state.Birthday) return this.state.Birthday.split('T')[0]
+    return ''
+  }
+
   onDeleteUser() {
     const Username = localStorage.getItem("user");
     const token = localStorage.getItem("token");
+
+
 
     axios
       .delete(`https://listapeli.herokuapp.com/users/${Username}`, {
@@ -172,13 +181,7 @@ export class ProfileView extends React.Component {
     });
   }
 
-  // ??????????????????????????????
-  //how to make placeholder for birthday? (the actual value)
-  /*getBirthdayValue = () => {
-    if (this.state.Birthday) return this.state.Birthday.split('T')[0]
-    return ''
-  }*/
-  // ????????????????????????????????????
+
 
   render() {
     const { movies, onBackClick } = this.props;
@@ -244,6 +247,7 @@ export class ProfileView extends React.Component {
                     <FormControl
                       type="date"
                       name="Birthday"
+
                       value={Birthday}
                       onChange={(e) => this.setBirthday(e.target.value)}
                       required
