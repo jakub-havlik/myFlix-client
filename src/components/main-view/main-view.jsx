@@ -121,7 +121,7 @@ class MainView extends React.Component {
     let { user } = this.state;
 
     return (
-      <Router>
+      <div>
         <MenuBar user={user} />
         <Container>
           <Row className="main-view justify-content-md-center">
@@ -243,7 +243,7 @@ class MainView extends React.Component {
 
           </Row>
         </Container>
-      </Router>
+      </div>
     );
   }
 }
