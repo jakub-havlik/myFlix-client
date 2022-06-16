@@ -2882,6 +2882,7 @@ var _containerDefault = parcelHelpers.interopDefault(_container);
 var _redux = require("redux");
 var _reactRedux = require("react-redux");
 var _reduxDevtoolsExtension = require("redux-devtools-extension");
+var _reactRouterDom = require("react-router-dom");
 var _reducers = require("./reducers/reducers");
 var _reducersDefault = parcelHelpers.interopDefault(_reducers);
 // since MainView was exported as a default component no curly braces are needed
@@ -2897,20 +2898,26 @@ class MyFlixApplication extends (0, _reactDefault.default).Component {
     render() {
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
             store: store,
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainViewDefault.default), {}, void 0, false, {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainViewDefault.default), {}, void 0, false, {
+                        fileName: "src/index.jsx",
+                        lineNumber: 30,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
                     fileName: "src/index.jsx",
-                    lineNumber: 27,
+                    lineNumber: 29,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "src/index.jsx",
-                lineNumber: 26,
+                lineNumber: 28,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 25,
+            lineNumber: 27,
             columnNumber: 7
         }, this);
     }
@@ -2925,7 +2932,7 @@ const container = document.getElementsByClassName("app-container")[0];
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","react-bootstrap/Container":"hEdsw","redux":"cDNB3","react-redux":"bdVon","redux-devtools-extension":"fOPxo","./reducers/reducers":"dgblV","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","react-bootstrap/Container":"hEdsw","redux":"cDNB3","react-redux":"bdVon","redux-devtools-extension":"fOPxo","./reducers/reducers":"dgblV","./components/main-view/main-view":"4gflv","./index.scss":"lJZlQ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"cHIiW"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -28027,7 +28034,7 @@ class MainView extends (0, _reactDefault.default).Component {
         // movies is extracted from this.props rather than from this.state
         let { movies  } = this.props;
         let { user: user1  } = this.state;
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _menubar.MenuBar), {
                     user: user1
