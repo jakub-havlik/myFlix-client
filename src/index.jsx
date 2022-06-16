@@ -6,6 +6,8 @@ import Container from 'react-bootstrap/Container';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { devToolsEnhancer } from 'redux-devtools-extension';
+import { BrowserRouter } from "react-router-dom";
+
 import moviesApp from './reducers/reducers';
 // since MainView was exported as a default component no curly braces are needed
 import MainView from './components/main-view/main-view';
@@ -23,9 +25,11 @@ class MyFlixApplication extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container>
-          <MainView />
-        </Container>
+        <BrowserRouter>
+          <Container>
+            <MainView />
+          </Container>
+        </BrowserRouter>
       </Provider>
     );
   }
