@@ -23,6 +23,7 @@ const store = createStore(moviesApp, devToolsEnhancer());
 // all the components inside the Provider have access to the store
 class MyFlixApplication extends React.Component {
   render() {
+    console.log("hello")
     return (
       <Provider store={store}>
         <BrowserRouter>
