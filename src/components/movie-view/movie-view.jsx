@@ -44,6 +44,7 @@ export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
+    console.log(movie);
 
     // if movie has multiple genres change label "Genre:" to "Genres:"
     const genrePlural = [];
