@@ -2896,28 +2896,29 @@ const store = (0, _redux.createStore)((0, _reducersDefault.default), (0, _reduxD
 // all the components inside the Provider have access to the store
 class MyFlixApplication extends (0, _reactDefault.default).Component {
     render() {
+        console.log("hello");
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRedux.Provider), {
             store: store,
             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.BrowserRouter), {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _containerDefault.default), {
                     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainViewDefault.default), {}, void 0, false, {
                         fileName: "src/index.jsx",
-                        lineNumber: 30,
+                        lineNumber: 31,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "src/index.jsx",
-                    lineNumber: 29,
+                    lineNumber: 30,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "src/index.jsx",
-                lineNumber: 28,
+                lineNumber: 29,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/index.jsx",
-            lineNumber: 27,
+            lineNumber: 28,
             columnNumber: 7
         }, this);
     }
