@@ -16,15 +16,9 @@ Main view
 * Sorting and filtering
 * Ability to select a movie for more details
 
-Single movie view
+Movie view
 * Returns data (description, genre, director, image, release year) about a single movie to the user
 * Allows users to add a movie to their list of favorites
-
-Login view
-* Allows users to log in with a username and password
-
-* Registration view
-* Allows new users to register (username, password, email, birthday)
 
 Genre view
 * Returns data about a genre, with a name and description
@@ -33,6 +27,12 @@ Genre view
 Director view
 * Returns data about a director (name, bio, birth year, death year)
 * Displays other movies by this director
+
+Login view
+* Allows users to log in with a username and password
+
+Registration view
+* Allows new users to register (username, password, email, birthday)
 
 Profile view
 * Allows users to update their user info (username, password, email, date of birth)
