@@ -61,7 +61,7 @@ parcel src/index.html
 
 
 
-## Technical Requirements
+### Technical Requirements
 * SPA application built using React
 * Navigate between views using react-router-dom
 * Use Parcel as build tool
