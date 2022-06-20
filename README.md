@@ -42,6 +42,18 @@ Profile view
 
 
 
+## Technical Requirements
+
+* SPA application built using React
+* Navigate between views using react-router-dom
+* Use Parcel as build tool
+* Use react-bootstrap for UI
+* Use React Redux for state management (respecting the Flux pattern)
+* Use both class and function components
+* Use axios to connect to API (providing user and movie information)
+
+
+
 ## How to install and run the project?
 
 1. Clone or download repository
@@ -58,17 +70,6 @@ npm install
 ```bash
 parcel src/index.html
 ```
-
-
-
-### Technical Requirements
-* SPA application built using React
-* Navigate between views using react-router-dom
-* Use Parcel as build tool
-* Use react-bootstrap for UI
-* Use React Redux for state management (respecting the Flux pattern)
-* Use both class and function components
-* Use axios to connect to API (providing user and movie information)
 
 
 
