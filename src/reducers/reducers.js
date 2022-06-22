@@ -5,8 +5,8 @@ import {
   SET_FILTER,
   SET_MOVIES,
   SET_USER,
-  ADD_FAVMOVIE,
-  REM_FAVMOVIE
+  ADD_FAV_MOVIE,
+  REM_FAV_MOVIE
 } from '../actions/actions';
 
 function visibilityFilter(state = '', action) {
@@ -32,9 +32,9 @@ function user(state = '', action) {
   switch (action.type) {
     case SET_USER:
       return action.user || localStorage.getItem('user') || '';
-    case ADD_FAVMOVIE:
+    case ADD_FAV_MOVIE:
       return action.value;
-    case REM_FAVMOVIE:
+    case REM_FAV_MOVIE:
       return action.value;
     default:
       return state;
