@@ -3,8 +3,8 @@
 export const SET_MOVIES = 'SET_MOVIES';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_USER = 'SET_USER';
-export const ADD_FAV_MOVIE = 'ADD_FAVMOVIE';
-export const REM_FAV_MOVIE = 'REM_FAVMOVIE';
+export const ADD_FAV_MOVIE = 'ADD_FAV_MOVIE';
+export const REM_FAV_MOVIE = 'REM_FAV_MOVIE';
 
 export function setMovies(value) {
   return {
