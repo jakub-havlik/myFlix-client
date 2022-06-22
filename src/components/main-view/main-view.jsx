@@ -41,9 +41,18 @@ class MainView extends React.Component {
 
 
   addMovieToFavorites(movieId) {
-    return axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
+    //console.log(this.state.user)
+    //console.log(movieId)
+    console.log(localStorage.getItem('token'))
+    axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
       {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-    )
+    ).then(response => {
+      /* instead of passing the movies to the state we pass movies to the props */
+      console.log(response);
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
 

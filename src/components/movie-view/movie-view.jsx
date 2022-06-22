@@ -33,6 +33,7 @@ export class MovieView extends React.Component {
     });
 
     this.props.addMovieToFavorites(this.props.movie._id).then((response) => {
+      console.log(response);
       this.setState({
         isLoading: false,
         hasBeenAddedToFavorites: true
@@ -62,13 +63,24 @@ export class MovieView extends React.Component {
     // how to exclude comma behind the last word?
     // if only one movie is represented by the genre, it throws an error
     const items = [];
+    let comma = "";
     for (const [index, value] of movie.Genre.Name.entries()) {
+      //console.log(movie.Genre.Name.length);
+
+      if (index != movie.Genre.Name.length - 1) {
+        comma = ","
+      } else {
+        comma = ""
+
+      }
+      console.log(index);
       items.push(
         <span>
           <Link to={`/genres/${value}`}>
             {value}
           </Link>
-          , </span>
+
+          {comma} </span>
       );
     }
 
