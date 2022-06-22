@@ -4,19 +4,12 @@
 import React from "react";
 import axios from "axios";
 import { Container, Row, Col } from "react-bootstrap";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 // react redux
-import { connect } from 'react-redux';
-import {
-  setMovies,
-  setUser
-} from '../../actions/actions';
+import { connect } from "react-redux";
+import { setMovies, setUser } from "../../actions/actions";
 // import components
-import MoviesList from '../movies-list/movies-list';
+import MoviesList from "../movies-list/movies-list";
 import { MenuBar } from "../menubar/menubar";
 import { LoginView } from "../login-view/login-view";
 import { MovieView } from "../movie-view/movie-view";
@@ -27,34 +20,25 @@ import { ProfileView } from "../profile-view/profile-view";
 // styling
 import "./main-view.scss";
 
-
-
 class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
       // Set initial user state to null, used for user login --> Default is logged out
-      user: null
+      user: null,
     };
     this.addMovieToFavorites = this.addMovieToFavorites.bind(this);
   }
 
-
   addMovieToFavorites(movieId) {
-    //console.log(this.state.user)
-    //console.log(movieId)
-    console.log(localStorage.getItem('token'))
-    axios.post(`https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
-      {}, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }
-    ).then(response => {
-      /* instead of passing the movies to the state we pass movies to the props */
-      console.log(response);
-    })
-      .catch(function (error) {
-        console.log(error);
-      });
+    return axios.post(
+      `https://listapeli.herokuapp.com/users/${this.state.user}/movies/${movieId}`,
+      {},
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      }
+    );
   }
-
 
   // When token is present (user is logged in), get list of movies
   componentDidMount() {
@@ -67,12 +51,12 @@ class MainView extends React.Component {
     }
   }
 
-
   getMovies(token) {
-    axios.get('https://listapeli.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
+    axios
+      .get("https://listapeli.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
         /* instead of passing the movies to the state we pass movies to the props */
         this.props.setMovies(response.data);
       })
@@ -101,7 +85,6 @@ class MainView extends React.Component {
       });
   }*/
 
-
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
     console.log(authData);
@@ -113,7 +96,6 @@ class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
-
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -121,8 +103,6 @@ class MainView extends React.Component {
       user: null,
     });
   }
-
-
 
   render() {
     // movies is extracted from this.props rather than from this.state
@@ -134,7 +114,6 @@ class MainView extends React.Component {
         <MenuBar user={user} />
         <Container>
           <Row className="main-view justify-content-md-center">
-
             <Route
               exact
               path="/"
@@ -148,13 +127,18 @@ class MainView extends React.Component {
                     </Col>
                   );
                 // If movie list is empty (while movies load from API), display empty page
-                if (movies.length === 0) return (
-                  <div className="d-flex justify-content-center mt-5">
-                    <div className="spinner-border text-light" style={{ width: "3rem", height: "3rem" }} role="status">
-                      <span className="sr-only">Loading...</span>
+                if (movies.length === 0)
+                  return (
+                    <div className="d-flex justify-content-center mt-5">
+                      <div
+                        className="spinner-border text-light"
+                        style={{ width: "3rem", height: "3rem" }}
+                        role="status"
+                      >
+                        <span className="sr-only">Loading...</span>
+                      </div>
                     </div>
-                  </div>
-                );
+                  );
                 return <MoviesList movies={movies} />;
               }}
             />
@@ -174,12 +158,17 @@ class MainView extends React.Component {
             />
 
             <Route
-              path="/movie/:movieId" render={({ match, history }) => {
+              path="/movie/:movieId"
+              render={({ match, history }) => {
                 return (
                   <Col xs={12} md={10}>
-                    <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} addMovieToFavorites={this.addMovieToFavorites} />
+                    <MovieView
+                      movie={movies.find((m) => m._id === match.params.movieId)}
+                      onBackClick={() => history.goBack()}
+                      addMovieToFavorites={this.addMovieToFavorites}
+                    />
                   </Col>
-                )
+                );
               }}
             />
 
@@ -249,7 +238,6 @@ class MainView extends React.Component {
                 );
               }}
             />
-
           </Row>
         </Container>
       </div>
@@ -257,27 +245,24 @@ class MainView extends React.Component {
   }
 }
 
-
-
 // mapping the state of this component to its props
-let mapStateToProps = state => {
+let mapStateToProps = (state) => {
   return {
     movies: state.movies,
-    user: state.user
-  }
-}
+    user: state.user,
+  };
+};
 
-
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     setUser: (user) => {
-      dispatch(setUser(user))
+      dispatch(setUser(user));
     },
     setMovies: (movies) => {
-      dispatch(setMovies(movies))
-    }
-  }
-}
+      dispatch(setMovies(movies));
+    },
+  };
+};
 
 // connect function connects this component to the store
 // the movies state is extracted from the store through the connect() function
@@ -285,6 +270,3 @@ const mapDispatchToProps = dispatch => {
 // connect() function is a HOC (higher-order component)
 // it takes a component and returns a new component
 export default connect(mapStateToProps, mapDispatchToProps)(MainView);
-
-
-
