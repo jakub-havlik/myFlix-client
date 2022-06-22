@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export class MovieCard extends React.Component {
   render() {
     const { movie } = this.props;
-    const { Title, Description, ImagePath, _id } = movie;
+    const { Title, ImagePath, _id } = movie;
     return (
       <Card className="mb-4">
         <Link to={`/movie/${_id}`}>
