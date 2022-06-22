@@ -3,8 +3,8 @@
 export const SET_MOVIES = 'SET_MOVIES';
 export const SET_FILTER = 'SET_FILTER';
 export const SET_USER = 'SET_USER';
-export const ADD_FAVMOVIE = 'ADD_FAVMOVIE';
-export const REM_FAVMOVIE = 'REM_FAVMOVIE';
+export const ADD_FAV_MOVIE = 'ADD_FAVMOVIE';
+export const REM_FAV_MOVIE = 'REM_FAVMOVIE';
 
 export function setMovies(value) {
   return {
@@ -29,14 +29,14 @@ export function setUser(user) {
 
 export function addFavMovie(value) {
   return {
-    type: ADD_FAVMOVIE,
+    type: ADD_FAV_MOVIE,
     value
   }
 }
 
 export function remFavMovie(value) {
   return {
-    type: REM_FAVMOVIE,
+    type: REM_FAV_MOVIE,
     value
   };
 }
