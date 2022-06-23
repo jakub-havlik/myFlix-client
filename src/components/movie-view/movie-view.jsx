@@ -43,6 +43,8 @@ export class MovieView extends React.Component {
       });
   }
 
+
+
   render() {
     const { movie, onBackClick } = this.props;
     console.log(movie);
@@ -55,20 +57,25 @@ export class MovieView extends React.Component {
       genrePlural.push(<span>Genres:</span>);
     }
 
+
     //////////////////////// ????????????????
-    // how to exclude comma behind the last word?
+    //// PROBLEM
     // if only one movie is represented by the genre, it throws an error
+    //////////////////////// ????????????????
+
+
+    // a list of genres of the selected movie - each one links to its definition
+    // ! make sure the last item of the array of genres has no comma behing it
     const items = [];
     let comma = "";
     for (const [index, value] of movie.Genre.Name.entries()) {
       //console.log(movie.Genre.Name.length);
-
       if (index != movie.Genre.Name.length - 1) {
         comma = ",";
       } else {
         comma = "";
       }
-      console.log(index);
+      //console.log(index);
       items.push(
         <span>
           <Link to={`/genres/${value}`}>{value}</Link>
