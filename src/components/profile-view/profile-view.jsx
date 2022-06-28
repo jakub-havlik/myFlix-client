@@ -10,6 +10,7 @@ import {
   Form,
   FormGroup,
   FormControl,
+  Figure,
 } from "react-bootstrap";
 // react redux
 import { connect } from "react-redux";
@@ -289,26 +290,30 @@ export class ProfileView extends React.Component {
                         movie._id ===
                         FavoriteMovies.find((fav) => fav === movie._id)
                       ) {
+
+
                         return (
-                          <Card className="favorite-movie" key={movie._id}>
-                            <Card.Img
-                              className="favorite-movie-image"
-                              variant="top"
-                              src={movie.ImagePath}
-                            />
-                            <Card.Body>
-                              <Card.Title className="movie-title">
+                          <Col xs={12} md={6} lg={3} key={movie._id} className="favorite-movie">
+                            <Figure>
+                              <Figure.Image
+                                className="favorite-movie-image"
+                                variant="top"
+                                src={movie.ImagePath}
+                                alt={movie.Title}
+                              />
+                              <Figure.Caption className="movie-title">
                                 {movie.Title}
-                              </Card.Title>
-                              <Button
-                                value={movie._id}
-                                onClick={(e) => this.onRemoveFavorite(e, movie)}
-                              >
-                                Remove from List
-                              </Button>
-                            </Card.Body>
-                          </Card>
+                              </Figure.Caption>
+                            </Figure>
+                            <Button
+                              value={movie._id}
+                              onClick={(e) => this.onRemoveFavorite(e, movie)}
+                            >
+                              Remove
+                            </Button>
+                          </Col>
                         );
+
                       }
                     })}
                 </Row>
@@ -316,7 +321,7 @@ export class ProfileView extends React.Component {
             </Card>
           </Col>
         </Row>
-      </Container>
+      </Container >
     );
   }
 }
