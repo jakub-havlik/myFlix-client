@@ -1,11 +1,44 @@
 
 
+.favorite-movie {
+  margin-bottom: 15px;
+  font-family: Alegreya Sans, sans-serif;
+}
+
+.favorite-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.favorite-movie figure img {
+  height: 200px;
+  border-radius: 15px;
+  margin: auto;
+  display: block;
+}
+
+.favorite-movie figure figcaption {
+  text-align: center;
+}
+
+.favorite-movie button {
+  border-radius: 10px;
+  margin: auto;
+  display: block;
+}
+
+.card {
+  margin-bottom: 20px;
+}
 
 
 
-
-.my-flix {
-  color: #4682b4;
+body {
+  font-family: Alegreya Sans, sans-serif;
 }
 
 /*# sourceMappingURL=index.27d8da6b.css.map */
