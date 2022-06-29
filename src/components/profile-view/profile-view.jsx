@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {
   Container,
   Card,
+  CardGroup,
   Button,
   Row,
   Col,
@@ -189,136 +190,132 @@ export class ProfileView extends React.Component {
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     return (
-      <Container>
+      <Container >
         <Row>
           <Col>
-            <Card>
-              <Card.Body>
-                <Card.Title>Profile</Card.Title>
-                <Form
-                  className="update-form"
-                  onSubmit={(e) =>
-                    this.editUser(
-                      e,
-                      this.Username,
-                      this.Password,
-                      this.Email,
-                      this.Birthday
-                    )
-                  }
-                >
-                  <FormGroup>
-                    <Form.Label>Username</Form.Label>
-                    <FormControl
-                      type="text"
-                      name="Username"
-                      placeholder="New Username"
-                      value={Username}
-                      onChange={(e) => this.setUsername(e.target.value)}
-                      required
-                    />
-                  </FormGroup>
+            <Card.Body className="profile-view-body">
 
-                  <FormGroup>
-                    <Form.Label>New Password</Form.Label>
-                    <FormControl
-                      type="password"
-                      name="Password"
-                      placeholder="Enter New Password"
-                      value={this.Password}
-                      onChange={(e) => this.setPassword(e.target.value)}
-                      required
-                    />
-                  </FormGroup>
+              <Form
+                className="update-form"
+                onSubmit={(e) =>
+                  this.editUser(
+                    e,
+                    this.Username,
+                    this.Password,
+                    this.Email,
+                    this.Birthday
+                  )
+                }
+              >
+                <FormGroup>
+                  <Form.Label>Username</Form.Label>
+                  <FormControl
+                    type="text"
+                    name="Username"
+                    placeholder="New Username"
+                    value={Username}
+                    onChange={(e) => this.setUsername(e.target.value)}
+                    required
+                  />
+                </FormGroup>
 
-                  <FormGroup>
-                    <Form.Label>Email</Form.Label>
-                    <FormControl
-                      type="email"
-                      name="Email"
-                      placeholder="Enter Email"
-                      value={Email}
-                      onChange={(e) => this.setEmail(e.target.value)}
-                      required
-                    />
-                  </FormGroup>
+                <FormGroup>
+                  <Form.Label>Email</Form.Label>
+                  <FormControl
+                    type="email"
+                    name="Email"
+                    placeholder="Enter Email"
+                    value={Email}
+                    onChange={(e) => this.setEmail(e.target.value)}
+                    required
+                  />
+                </FormGroup>
 
-                  <FormGroup>
-                    <Form.Label>Birthday</Form.Label>
-                    <FormControl
-                      type="date"
-                      name="Birthday"
+                <FormGroup>
+                  <Form.Label>Birthday</Form.Label>
+                  <FormControl
+                    type="date"
+                    name="Birthday"
+                    value={Birthday}
+                    onChange={(e) => this.setBirthday(e.target.value)}
+                    required
+                  />
+                </FormGroup>
 
-                      value={Birthday}
-                      onChange={(e) => this.setBirthday(e.target.value)}
-                      required
-                    />
-                  </FormGroup>
-                  <div className="mt-4">
-                    <Button
-                      variant="success"
-                      className="mr-3"
-                      type="submit"
-                      onClick={this.editUser}
-                    >
-                      Update Data
-                    </Button>
-                    <Button
-                      variant="danger"
-                      onClick={() => this.onDeleteUser()}
-                    >
-                      Delete Profile
-                    </Button>
-                  </div>
-                </Form>
-              </Card.Body>
-            </Card>
+                <FormGroup>
+                  <Form.Label>New Password?</Form.Label>
+                  <FormControl
+                    type="password"
+                    name="Password"
+                    placeholder="Enter New Password"
+                    value={this.Password}
+                    onChange={(e) => this.setPassword(e.target.value)}
+                    required
+                  />
+                </FormGroup>
+
+                <div className="mt-4">
+                  <Button
+                    variant="success"
+                    className="button-update"
+                    type="submit"
+                    onClick={this.editUser}
+                  >
+                    Update Profile
+                  </Button>
+                  <Button
+                    variant="danger"
+                    onClick={() => this.onDeleteUser()}
+                  >
+                    Delete Profile
+                  </Button>
+                </div>
+              </Form>
+            </Card.Body>
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <Card>
-              <Card.Body>
-                {FavoriteMovies.length === 0 && (
-                  <div className="text-center">No favorite movies</div>
-                )}
-                <Row className="favorite-movies-container">
-                  {FavoriteMovies.length > 0 &&
-                    movies.map((movie) => {
-                      if (
-                        movie._id ===
-                        FavoriteMovies.find((fav) => fav === movie._id)
-                      ) {
+            <Card.Body className="profile-view-body">
+              {FavoriteMovies.length === 0 && (
+                <div className="text-center">No favorite movies</div>
+              )}
+              <Row className="favorite-movies-container">
+                {FavoriteMovies.length > 0 &&
+                  movies.map((movie) => {
+                    if (
+                      movie._id ===
+                      FavoriteMovies.find((fav) => fav === movie._id)
+                    ) {
 
 
-                        return (
-                          <Col xs={12} md={6} lg={3} key={movie._id} className="favorite-movie">
-                            <Figure>
-                              <Figure.Image
-                                className="favorite-movie-image"
-                                variant="top"
-                                src={movie.ImagePath}
-                                alt={movie.Title}
-                              />
-                              <Figure.Caption className="movie-title">
-                                {movie.Title}
-                              </Figure.Caption>
-                            </Figure>
-                            <Button
-                              value={movie._id}
-                              onClick={(e) => this.onRemoveFavorite(e, movie)}
-                            >
-                              Remove
-                            </Button>
-                          </Col>
-                        );
+                      return (
+                        <Col xs={12} md={6} lg={3} key={movie._id} className="favorite-movie">
+                          <Figure>
+                            <Figure.Image
+                              className="favorite-movie-image"
+                              variant="top"
+                              src={movie.ImagePath}
+                              alt={movie.Title}
+                            />
+                            <Figure.Caption className="movie-title">
+                              {movie.Title}
+                            </Figure.Caption>
+                          </Figure>
+                          <Button
+                            value={movie._id}
+                            onClick={(e) => this.onRemoveFavorite(e, movie)}
+                          >
+                            Remove
+                          </Button>
+                        </Col>
+                      );
 
-                      }
-                    })}
-                </Row>
-              </Card.Body>
-            </Card>
+                    }
+                  })}
+              </Row>
+            </Card.Body>
           </Col>
         </Row>
       </Container >
