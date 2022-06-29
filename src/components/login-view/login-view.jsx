@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Form, Button } from 'react-bootstrap';
+import {
+  Form,
+  Button,
+  Card,
+  CardGroup,
+  Container,
+  Row,
+  Col
+} from "react-bootstrap";
 import PropTypes from 'prop-types';
 // react redux
 import { connect } from 'react-redux';
@@ -38,21 +46,54 @@ export function LoginView(props) {
 
 
   return (
-    <Form className="m-5" style={{ color: 'white' }}>
-      <Form.Group className="mb-3" controlId="formUsername">
-        <Form.Label>Username:</Form.Label>
-        <Form.Control type="text" disabled={isLoading} placeholder="Enter username" value={username} onChange={e => setUsername(e.target.value)} />
-      </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control disabled={isLoading} type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit} disabled={isLoading}>
-        {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : ''}
-        {isLoading ? ' Loading...' : 'Submit'}
-      </Button>
-    </Form>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title>Welcome</Card.Title>
+                <Form className="m-5" style={{ color: 'black' }}>
+
+                  <Form.Group className="mb-3" controlId="formUsername">
+                    <Form.Label>Username:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      disabled={isLoading}
+                      placeholder="Enter username"
+                      value={username}
+                      onChange={e => setUsername(e.target.value)}
+                    />
+                  </Form.Group>
+
+                  <Form.Group className="mb-3" controlId="formPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      disabled={isLoading}
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={e => setPassword(e.target.value)}
+                    />
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit" onClick={handleSubmit} disabled={isLoading}>
+                    {isLoading ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : ''}
+                    {isLoading ? ' Loading...' : 'Submit'}
+                  </Button>
+
+                </Form>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
+
+
+
+
   );
 
 
