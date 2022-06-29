@@ -1,3 +1,7 @@
+.main-nav {
+  font-family: Montserrat, sans-serif;
+}
+
 
 
 .profile-view-body {
@@ -13,20 +17,7 @@
   color: pink;
   margin: 20px;
   padding: 20px;
-}
-
-.form-label {
-  margin-top: 10px;
-}
-
-input[type="text"], textarea, input[type="email"], textarea, input[type="date"], textarea {
-  background-color: pink;
-  border-radius: 30px;
-}
-
-input[type="password"], textarea {
-  background-color: #000;
-  border-radius: 30px;
+  font-family: Montserrat, sans-serif;
 }
 
 .favorite-movie {
@@ -64,14 +55,10 @@ input[type="password"], textarea {
   margin-bottom: 20px;
 }
 
-.button-update {
-  background-color: #0ff;
-}
-
 
 
 body {
   font-family: Montserrat, sans-serif;
 }
 
-/*# sourceMappingURL=index.27d8da6b.css.map */
+/*# sourceMappingURL=index.0e1b521d.css.map */
