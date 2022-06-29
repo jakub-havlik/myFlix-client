@@ -1,13 +1,59 @@
-$primary-color: #522266;
-$secondary-color: #ececec;
-$font-family: 'Alegreya Sans', sans-serif;
+$font-family: 'Montserrat', sans-serif;
+
+
+
+
+
+.profile-view-body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: black;
+  border: 2px solid pink;
+  border-radius: 20px;
+  padding: 20%;
+  margin: 10px;
+}
+
+
+.update-form {
+  color: pink;
+  padding: 20px;
+  margin: 20px;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+input[type="text"],
+textarea {
+  background-color: pink;
+  border-radius: 30px;
+}
+
+input[type="email"],
+textarea {
+  background-color: pink;
+  border-radius: 30px;
+}
+
+input[type="date"],
+textarea {
+  background-color: pink;
+  border-radius: 30px;
+}
+
+input[type="password"],
+textarea {
+  background-color: black;
+  border-radius: 30px;
+}
 
 
 
 
 .favorite-movie {
   margin-bottom: 15px;
-  font-family: 'Alegreya Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
   figure {
     position: relative;
@@ -31,6 +77,12 @@ $font-family: 'Alegreya Sans', sans-serif;
 
   }
 
+
+
+
+
+
+
   button {
     display: block;
     margin: auto;
@@ -42,4 +94,10 @@ $font-family: 'Alegreya Sans', sans-serif;
 
 .card {
   margin-bottom: 20px;
+
+}
+
+
+.button-update {
+  background-color: aqua;
 }
