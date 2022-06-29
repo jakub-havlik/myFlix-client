@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Form, Button } from 'react-bootstrap';
+import {
+  Form,
+  Button,
+  Card,
+  CardGroup,
+  Container,
+  Row,
+  Col
+} from "react-bootstrap";
 
 
 // Create RegistrationView as function component using Hooks
@@ -80,43 +88,67 @@ export function RegistrationView(props) {
   // Return a registration form where users can submit their username, password, email and birthday
   // Listening to changes on input and then updating the respective states
   return (
-    <>
-      <h1>Registration</h1>
-      <Form className="mb-3">
-        <Form.Group controlId="formUsername" className="mb-3">
-          <Form.Label>Username*:</Form.Label>
-          <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
-          {usernameErr && <p className="font-italic">{usernameErr}</p>}
-        </Form.Group>
 
-        <Form.Group controlId="formPassword" className="mb-3">
-          <Form.Label>Password*:</Form.Label>
-          <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
-          {passwordErr && <p className="font-italic">{passwordErr}</p>}
-        </Form.Group>
+    <Container>
+      <Row>
+        <Col>
+          <CardGroup>
+            <Card>
+              <Card.Body>
+                <Card.Title>Registration</Card.Title>
 
-        <Form.Group controlId="formEmail" className="mb-3">
-          <Form.Label>Email*:</Form.Label>
-          <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
-          {emailErr && <p className="font-italic">{emailErr}</p>}
-        </Form.Group>
+                <Form className="mb-3">
+                  <Form.Group controlId="formUsername" className="mb-3">
+                    <Form.Label>Username*:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      onChange={e => setUsername(e.target.value)}
+                      placeholder="Enter username"
+                    />
+                    {usernameErr && <p className="font-italic">{usernameErr}</p>}
+                  </Form.Group>
 
-        <Form.Group controlId="formBirthday" className="mb-3">
-          <Form.Label>Birthday:</Form.Label>
-          <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
-        </Form.Group>
+                  <Form.Group controlId="formPassword" className="mb-3">
+                    <Form.Label>Password*:</Form.Label>
+                    <Form.Control
+                      type="password"
+                      onChange={e => setPassword(e.target.value)}
+                      placeholder="at least 8 characters"
+                    />
+                    {passwordErr && <p className="font-italic">{passwordErr}</p>}
+                  </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
-          Register
-        </Button>
-      </Form>
-      <p>
-        Already have an account?{'    '}
-        <Link to={`/`}>
-          <Button variant="link">Login!</Button>
-        </Link>
-      </p>
-    </>
+                  <Form.Group controlId="formEmail" className="mb-3">
+                    <Form.Label>Email*:</Form.Label>
+                    <Form.Control type="email" onChange={e => setEmail(e.target.value)} />
+                    {emailErr && <p className="font-italic">{emailErr}</p>}
+                  </Form.Group>
+
+                  <Form.Group controlId="formBirthday" className="mb-3">
+                    <Form.Label>Birthday:</Form.Label>
+                    <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
+                  </Form.Group>
+
+                  <Button variant="primary" type="submit" onClick={handleSubmit}>
+                    Register
+                  </Button>
+                </Form>
+                <p>
+                  Already have an account?{'    '}
+                  <Link to={`/`}>
+                    <Button variant="link">Login!</Button>
+                  </Link>
+                </p>
+              </Card.Body>
+            </Card>
+          </CardGroup>
+        </Col>
+      </Row>
+    </Container>
+
+
+
+
   );
 
 }
