@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 // styling
-//import './menubar.scss';
+//import "./menubar.scss";
 
 
 
@@ -26,11 +26,13 @@ export function MenuBar({ user }) {
     }
   };
 
+  const a = "{a}";
+
   return (
     <Navbar className="main-nav" sticky="top" expand="lg" variant="dark">
-      <Container fluid style={{ margin: 0, padding: 0 }}>
+      <Container fluid style={{ margin: 20, padding: 0, }}>
         <Link to="/">
-          <Navbar.Brand className="navbar-logo">list[a]peli</Navbar.Brand>
+          <Navbar.Brand className="navbar-logo">list{a}peli</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
