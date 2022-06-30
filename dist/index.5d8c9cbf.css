@@ -1,0 +1,131 @@
+
+
+.movie-figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  padding: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-figure img {
+  height: 340px;
+  border-radius: 25px;
+  margin: auto;
+  display: block;
+}
+
+.container {
+  font-family: Montserrat, sans-serif;
+  font-size: 20px;
+}
+
+
+
+.profile-view-body {
+  background-color: #000;
+  border: 2px solid pink;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 20%;
+  font-family: Montserrat, sans-serif;
+}
+
+.profile-view-body button.submit {
+  color: #000;
+  background-color: #8ff;
+  border: 5px solid pink;
+  border-radius: 30px;
+  margin-top: 40px;
+  display: block;
+}
+
+.profile-view-body button.submit:hover {
+  color: red;
+  opacity: 1;
+  background-color: #fff;
+}
+
+.profile-view-body button.delete {
+  color: gray;
+  background-color: #000;
+  border: 2px solid gray;
+  border-radius: 30px;
+  margin-top: 20px;
+  display: block;
+}
+
+.profile-view-body button.delete:hover {
+  color: red;
+  opacity: .5;
+  background-color: #fff;
+}
+
+.update-form {
+  color: pink;
+  margin: 20px;
+  padding: 20px;
+}
+
+.form-label {
+  margin-top: 10px;
+}
+
+input[type="text"], textarea, input[type="email"], textarea, input[type="date"], textarea {
+  background-color: pink;
+  border-radius: 30px;
+}
+
+input[type="password"], textarea {
+  background-color: #000;
+  border-radius: 30px;
+}
+
+.favorite-movie {
+  margin-bottom: 15px;
+  font-family: Montserrat, sans-serif;
+}
+
+.favorite-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.favorite-movie figure img {
+  height: 180px;
+  border-radius: 15px;
+  margin: auto;
+  display: block;
+}
+
+.favorite-movie figure figcaption {
+  text-align: center;
+}
+
+.favorite-movie button {
+  border-radius: 10px;
+  margin: auto;
+  display: block;
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+.button-update {
+  background-color: #0ff;
+}
+
+
+
+body {
+  font-family: Montserrat, sans-serif;
+}
+
+/*# sourceMappingURL=index.5d8c9cbf.css.map */
