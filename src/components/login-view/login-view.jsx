@@ -44,6 +44,7 @@ export function LoginView(props) {
   };
 
 
+  const a = "{a}";
 
   return (
 
@@ -53,7 +54,7 @@ export function LoginView(props) {
           <CardGroup>
             <Card>
               <Card.Body>
-                <Card.Title>Welcome</Card.Title>
+                <Card.Title>list{a}peli</Card.Title>
                 <Form className="m-5" style={{ color: 'black' }}>
 
                   <Form.Group className="mb-3" controlId="formUsername">
