@@ -1,7 +1,20 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
+import {
+  Container,
+  Card,
+  CardGroup,
+  Button,
+  Row,
+  Col,
+  Form,
+  FormGroup,
+  FormControl,
+  Figure,
+} from "react-bootstrap";
+// styling
+import "./movie-card.scss";
 
 
 export class MovieCard extends React.Component {
@@ -9,11 +22,19 @@ export class MovieCard extends React.Component {
     const { movie } = this.props;
     const { Title, ImagePath, _id } = movie;
     return (
-      <Card className="mb-4">
+
+      <Figure className="movie-figure">
         <Link to={`/movie/${_id}`}>
-          <Card.Img loading="lazy" variant="top" title={Title} src={ImagePath} width="400" alt={Title} />
+          <Figure.Image
+            loading="lazy"
+            variant="top"
+            title={Title}
+            src={ImagePath}
+            alt={Title}
+          />
         </Link>
-      </Card>
+      </Figure>
+
     );
   }
 }
