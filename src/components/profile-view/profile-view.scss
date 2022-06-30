@@ -11,6 +11,38 @@ $font-family: 'Montserrat', sans-serif;
   border-radius: 20px;
   padding: 20%;
   margin: 10px;
+
+  button.submit {
+    display: block;
+    margin-top: 40px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(136, 255, 255);
+    border: 5px solid pink;
+    border-radius: 30px;
+  }
+
+  button.submit:hover {
+    color: red;
+    background-color: white;
+    opacity: 1;
+  }
+
+  button.delete {
+    display: block;
+    margin-top: 20px;
+    background-color: black;
+    color: grey;
+    border: 2px solid grey;
+    border-radius: 30px;
+
+  }
+
+  button.delete:hover {
+    color: red;
+    background-color: white;
+    opacity: 0.5;
+  }
+
 }
 
 
@@ -76,12 +108,6 @@ textarea {
     }
 
   }
-
-
-
-
-
-
 
   button {
     display: block;
