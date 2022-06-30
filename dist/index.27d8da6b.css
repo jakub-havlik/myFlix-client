@@ -9,6 +9,36 @@
   font-family: Montserrat, sans-serif;
 }
 
+.profile-view-body button.submit {
+  color: #000;
+  background-color: #8ff;
+  border: 5px solid pink;
+  border-radius: 30px;
+  margin-top: 40px;
+  display: block;
+}
+
+.profile-view-body button.submit:hover {
+  color: red;
+  opacity: 1;
+  background-color: #fff;
+}
+
+.profile-view-body button.delete {
+  color: gray;
+  background-color: #000;
+  border: 2px solid gray;
+  border-radius: 30px;
+  margin-top: 20px;
+  display: block;
+}
+
+.profile-view-body button.delete:hover {
+  color: red;
+  opacity: .5;
+  background-color: #fff;
+}
+
 .update-form {
   color: pink;
   margin: 20px;
