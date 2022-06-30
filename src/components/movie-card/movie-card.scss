@@ -1,0 +1,27 @@
+$font-family: 'Montserrat', sans-serif;
+
+
+
+
+.movie-figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+  padding: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+
+  img {
+    display: block;
+    height: 340px;
+    margin: auto;
+    border-radius: 25px;
+  }
+
+  img:hover {
+    opacity: 0.7;
+  }
+
+}
