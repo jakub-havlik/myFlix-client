@@ -1,9 +1,6 @@
 $font-family: 'Montserrat', sans-serif;
 
 
-
-
-
 .profile-view-body {
   font-family: 'Montserrat', sans-serif;
   background-color: black;
@@ -80,6 +77,15 @@ textarea {
   border-radius: 30px;
 }
 
+input[placeholder="filter"],
+textarea {
+  background-color: rgb(0, 0, 0);
+  border-radius: 30px;
+  border: 2px solid rgb(255, 191, 191);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
 
 
 
@@ -97,7 +103,7 @@ textarea {
 
     img {
       display: block;
-      height: 200px;
+      height: 180px;
       margin: auto;
       border-radius: 15px;
     }
