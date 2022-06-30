@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 // styling
-//import "./menubar.scss";
+import "./menubar.scss";
 
 
 
