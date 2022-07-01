@@ -254,27 +254,31 @@ export class ProfileView extends React.Component {
                   />
                 </FormGroup>
 
+                <Card.Body className="buttons"  >
 
 
-                <Button
-                  variant="success"
-                  className="submit"
-                  type="submit"
-                  onClick={this.editUser}
-                >
-                  update profile
-                </Button>
 
-                <Button
-                  variant="danger"
-                  className="delete"
-                  onClick={() => this.onDeleteUser()}
-                >
-                  delete profile
-                </Button>
+                  <Button
+                    variant="success"
+                    className="submit"
+                    type="submit"
+                    onClick={this.editUser}
+                  >
+                    update profile
+                  </Button>
+
+                  <Button
+                    variant="danger"
+                    className="delete"
+                    onClick={() => this.onDeleteUser()}
+                  >
+                    delete profile
+                  </Button>
+                </Card.Body>
 
               </Form>
             </Card.Body>
+
           </Col>
         </Row>
 
@@ -282,7 +286,7 @@ export class ProfileView extends React.Component {
           <Col>
             <Card.Body className="profile-view-body">
               {FavoriteMovies.length === 0 && (
-                <div className="text-center">No favorite movies</div>
+                <div className="text-center">no favorite movies yet</div>
               )}
               <Row className="favorite-movies-container">
                 {FavoriteMovies.length > 0 &&
@@ -292,9 +296,8 @@ export class ProfileView extends React.Component {
                       FavoriteMovies.find((fav) => fav === movie._id)
                     ) {
 
-
                       return (
-                        <Col xs={12} md={6} lg={3} key={movie._id} className="favorite-movie">
+                        <Col xs={12} md={6} lg={3} key={movie._id} className="favorite-movie-body">
                           <Figure>
                             <Figure.Image
                               className="favorite-movie-image"
@@ -302,9 +305,7 @@ export class ProfileView extends React.Component {
                               src={movie.ImagePath}
                               alt={movie.Title}
                             />
-                            <Figure.Caption className="movie-title">
-                              {movie.Title}
-                            </Figure.Caption>
+                            {/*<Figure.Caption className="movie-title">{movie.Title}</Figure.Caption>*/}
                           </Figure>
                           <Button
                             className="remove-fav-btn"

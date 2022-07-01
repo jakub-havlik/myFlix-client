@@ -1,52 +1,108 @@
 $font-family: 'Montserrat', sans-serif;
 
+/* update profile info area */
 
 .profile-view-body {
   font-family: 'Montserrat', sans-serif;
   background-color: black;
   border: 2px solid pink;
   border-radius: 20px;
-  padding: 20%;
-  margin: 10px;
+  margin-bottom: 40px;
 
-  button.submit {
-    display: block;
-    margin-top: 40px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(136, 255, 255);
-    border: 5px solid pink;
-    border-radius: 30px;
-  }
+  .buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+    padding: 0%;
 
-  button.submit:hover {
-    color: red;
-    background-color: white;
-    opacity: 1;
-  }
+    button.submit {
+      background-color: rgb(136, 255, 255);
+      color: rgb(0, 0, 0);
+      border: 5px solid pink;
+      border-radius: 30px;
+      margin-top: 20px;
+    }
 
-  button.delete {
-    display: block;
-    margin-top: 20px;
-    background-color: black;
-    color: grey;
-    border: 2px solid grey;
-    border-radius: 30px;
+    button.submit:hover {
+      color: red;
+      background-color: white;
+      opacity: 1;
+    }
 
-  }
+    button.delete {
+      background-color: black;
+      color: grey;
+      border: 2px solid grey;
+      border-radius: 30px;
+      margin-top: 20px;
 
-  button.delete:hover {
-    color: red;
-    background-color: white;
-    opacity: 0.5;
+    }
+
+    button.delete:hover {
+      color: red;
+      background-color: white;
+      opacity: 0.5;
+    }
+
   }
 
 }
 
 
+/* list of favorites area */
+
+.favorite-movie-body {
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+
+  figure {
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: auto;
+    width: 100%;
+
+    img {
+      display: block;
+      height: 180px;
+      margin: auto;
+      border-radius: 15px;
+    }
+
+    /*figcaption {
+      text-align: center;
+    }*/
+
+  }
+
+  button.remove-fav-btn {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 2px solid grey;
+    border-radius: 20px;
+    background-color: black;
+    color: grey;
+  }
+
+  button.remove-fav-btn:hover {
+    color: white;
+    border: 2px solid white;
+  }
+
+}
+
+
+/* update profile form */
+
 .update-form {
   color: pink;
-  padding: 20px;
-  margin: 20px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .form-label {
@@ -84,62 +140,4 @@ textarea {
   border: 2px solid pink;
   padding: 20px;
   margin-bottom: 25px;
-}
-
-
-
-
-.favorite-movie {
-  margin-bottom: 15px;
-  font-family: 'Montserrat', sans-serif;
-
-  figure {
-    position: relative;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: auto;
-    width: 100%;
-
-    img {
-      display: block;
-      height: 180px;
-      margin: auto;
-      border-radius: 15px;
-    }
-
-    figcaption {
-      text-align: center;
-
-    }
-
-  }
-
-
-  button.remove-fav-btn {
-    display: block;
-    margin: auto;
-    border: 2px solid grey;
-    border-radius: 20px;
-    background-color: black;
-    color: grey;
-  }
-
-  button.remove-fav-btn:hover {
-    color: white;
-    border: 2px solid whi;
-  }
-
-
-
-}
-
-.card {
-  margin-bottom: 20px;
-
-}
-
-
-.button-update {
-  background-color: aqua;
 }
