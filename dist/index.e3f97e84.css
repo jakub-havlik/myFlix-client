@@ -16,12 +16,41 @@
 }
 
 .movie-figure img:hover {
-  opacity: .7;
+  opacity: .6;
 }
 
 .container {
+  padding: 20px;
   font-family: Montserrat, sans-serif;
+}
+
+.container .navbar-logo {
+  font-size: 32px;
+}
+
+.container span {
+  color: pink;
+}
+
+.container a.nav-link {
+  margin-right: 20px;
   font-size: 20px;
+}
+
+.container a.nav-link:hover {
+  color: red;
+}
+
+.container button.log-out-btn {
+  color: gray;
+  background-color: #000;
+  border: 2px solid pink;
+  border-radius: 30px;
+  display: block;
+}
+
+.container button:hover {
+  color: #fff;
 }
 
 
@@ -87,7 +116,7 @@ input[type="password"], textarea {
 
 input[placeholder="filter"], textarea {
   background-color: #000;
-  border: 2px solid #ffbfbf;
+  border: 2px solid pink;
   border-radius: 30px;
   margin-bottom: 25px;
   padding: 20px;
@@ -118,10 +147,18 @@ input[placeholder="filter"], textarea {
   text-align: center;
 }
 
-.favorite-movie button {
-  border-radius: 10px;
+.favorite-movie button.remove-fav-btn {
+  color: gray;
+  background-color: #000;
+  border: 2px solid gray;
+  border-radius: 20px;
   margin: auto;
   display: block;
+}
+
+.favorite-movie button.remove-fav-btn:hover {
+  color: #fff;
+  border: 2px solid whi;
 }
 
 .card {

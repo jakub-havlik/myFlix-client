@@ -37169,7 +37169,7 @@ $RefreshReg$(_c, "VisibilityFilterInput");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","../../actions/actions":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-bootstrap/Form":"iBZ80"}],"km3Ru":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Form":"iBZ80","react-redux":"bdVon","../../actions/actions":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("react-refresh/runtime");
 function debounce(func, delay) {
@@ -37360,7 +37360,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"cHIiW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-card.scss":"d6HH4","react-bootstrap":"3AD9A"}],"d6HH4":[function() {},{}],"lIU5g":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-router-dom":"cHIiW","react-bootstrap":"3AD9A","./movie-card.scss":"d6HH4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d6HH4":[function() {},{}],"lIU5g":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$1e24 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -37409,7 +37409,13 @@ function MenuBar({ user  }) {
                         className: "navbar-logo",
                         children: [
                             "list",
-                            a,
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                children: a
+                            }, void 0, false, {
+                                fileName: "src/components/menubar/menubar.jsx",
+                                lineNumber: 35,
+                                columnNumber: 53
+                            }, this),
                             "peli"
                         ]
                     }, void 0, true, {
@@ -37444,12 +37450,13 @@ function MenuBar({ user  }) {
                                 columnNumber: 15
                             }, this),
                             isAuth() && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                className: "log-out-btn",
                                 variant: "link",
                                 label: "Logout",
                                 onClick: ()=>{
                                     onLoggedOut();
                                 },
-                                children: "Log out"
+                                children: "log out"
                             }, void 0, false, {
                                 fileName: "src/components/menubar/menubar.jsx",
                                 lineNumber: 46,
@@ -37505,7 +37512,7 @@ $RefreshReg$(_c, "MenuBar");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"cHIiW","react-redux":"bdVon","../../actions/actions":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./menubar.scss":"I5ugC"}],"I5ugC":[function() {},{}],"9YtA0":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-router-dom":"cHIiW","react-redux":"bdVon","../../actions/actions":"biFwH","./menubar.scss":"I5ugC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"I5ugC":[function() {},{}],"9YtA0":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9fee = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -38843,7 +38850,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormGroup), {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                                children: "Username"
+                                                children: "name"
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 211,
@@ -38870,7 +38877,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormGroup), {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                                children: "Email"
+                                                children: "email"
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 223,
@@ -38897,7 +38904,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormGroup), {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                                children: "Birthday"
+                                                children: "born"
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 235,
@@ -38923,7 +38930,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormGroup), {
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Label, {
-                                                children: "New Password?"
+                                                children: "new password?"
                                             }, void 0, false, {
                                                 fileName: "src/components/profile-view/profile-view.jsx",
                                                 lineNumber: 246,
@@ -38932,7 +38939,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.FormControl), {
                                                 type: "password",
                                                 name: "Password",
-                                                placeholder: "Enter New Password",
+                                                placeholder: "enter new password",
                                                 value: this.Password,
                                                 onChange: (e)=>this.setPassword(e.target.value),
                                                 required: true
@@ -38952,7 +38959,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                         className: "submit",
                                         type: "submit",
                                         onClick: this.editUser,
-                                        children: "Update Profile"
+                                        children: "update profile"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
                                         lineNumber: 259,
@@ -38962,7 +38969,7 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                         variant: "danger",
                                         className: "delete",
                                         onClick: ()=>this.onDeleteUser(),
-                                        children: "Delete Profile"
+                                        children: "delete profile"
                                     }, void 0, false, {
                                         fileName: "src/components/profile-view/profile-view.jsx",
                                         lineNumber: 268,
@@ -39038,9 +39045,10 @@ class ProfileView extends (0, _reactDefault.default).Component {
                                                     columnNumber: 27
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                    className: "remove-fav-btn",
                                                     value: movie._id,
                                                     onClick: (e)=>this.onRemoveFavorite(e, movie),
-                                                    children: "Remove"
+                                                    children: "X"
                                                 }, void 0, false, {
                                                     fileName: "src/components/profile-view/profile-view.jsx",
                                                     lineNumber: 309,
