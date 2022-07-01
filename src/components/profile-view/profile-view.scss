@@ -81,7 +81,7 @@ input[placeholder="filter"],
 textarea {
   background-color: rgb(0, 0, 0);
   border-radius: 30px;
-  border: 2px solid rgb(255, 191, 191);
+  border: 2px solid pink;
   padding: 20px;
   margin-bottom: 25px;
 }
@@ -115,12 +115,22 @@ textarea {
 
   }
 
-  button {
+
+  button.remove-fav-btn {
     display: block;
     margin: auto;
-    border-radius: 10px;
-
+    border: 2px solid grey;
+    border-radius: 20px;
+    background-color: black;
+    color: grey;
   }
+
+  button.remove-fav-btn:hover {
+    color: white;
+    border: 2px solid whi;
+  }
+
+
 
 }
 

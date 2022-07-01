@@ -32,7 +32,7 @@ export function MenuBar({ user }) {
     <Navbar className="main-nav" sticky="top" expand="lg" variant="dark">
       <Container fluid style={{ margin: 20, padding: 0, }}>
         <Link to="/">
-          <Navbar.Brand className="navbar-logo">list{a}peli</Navbar.Brand>
+          <Navbar.Brand className="navbar-logo">list<span>{a}</span>peli</Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -43,9 +43,9 @@ export function MenuBar({ user }) {
               </Link>
             )}
             {isAuth() && (
-              <Button variant="link" label="Logout" onClick={() => {
+              <Button className="log-out-btn" variant="link" label="Logout" onClick={() => {
                 onLoggedOut()
-              }}>Log out</Button>
+              }}>log out</Button>
             )}
             {!isAuth() && (
               <Link className="nav-link" to="/register">

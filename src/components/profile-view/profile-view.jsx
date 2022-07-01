@@ -208,7 +208,7 @@ export class ProfileView extends React.Component {
                 }
               >
                 <FormGroup>
-                  <Form.Label>Username</Form.Label>
+                  <Form.Label>name</Form.Label>
                   <FormControl
                     type="text"
                     name="Username"
@@ -220,7 +220,7 @@ export class ProfileView extends React.Component {
                 </FormGroup>
 
                 <FormGroup>
-                  <Form.Label>Email</Form.Label>
+                  <Form.Label>email</Form.Label>
                   <FormControl
                     type="email"
                     name="Email"
@@ -232,7 +232,7 @@ export class ProfileView extends React.Component {
                 </FormGroup>
 
                 <FormGroup>
-                  <Form.Label>Birthday</Form.Label>
+                  <Form.Label>born</Form.Label>
                   <FormControl
                     type="date"
                     name="Birthday"
@@ -243,11 +243,11 @@ export class ProfileView extends React.Component {
                 </FormGroup>
 
                 <FormGroup>
-                  <Form.Label>New Password?</Form.Label>
+                  <Form.Label>new password?</Form.Label>
                   <FormControl
                     type="password"
                     name="Password"
-                    placeholder="Enter New Password"
+                    placeholder="enter new password"
                     value={this.Password}
                     onChange={(e) => this.setPassword(e.target.value)}
                     required
@@ -262,7 +262,7 @@ export class ProfileView extends React.Component {
                   type="submit"
                   onClick={this.editUser}
                 >
-                  Update Profile
+                  update profile
                 </Button>
 
                 <Button
@@ -270,7 +270,7 @@ export class ProfileView extends React.Component {
                   className="delete"
                   onClick={() => this.onDeleteUser()}
                 >
-                  Delete Profile
+                  delete profile
                 </Button>
 
               </Form>
@@ -307,10 +307,11 @@ export class ProfileView extends React.Component {
                             </Figure.Caption>
                           </Figure>
                           <Button
+                            className="remove-fav-btn"
                             value={movie._id}
                             onClick={(e) => this.onRemoveFavorite(e, movie)}
                           >
-                            Remove
+                            X
                           </Button>
                         </Col>
                       );

@@ -1,7 +1,38 @@
 $font-family: 'Montserrat', sans-serif;
 
 
+
 .container {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20;
+  font-family: 'Montserrat', sans-serif;
+  padding: 20px;
+
+  .navbar-logo {
+    font-size: 32px;
+  }
+
+  span {
+    color: pink;
+  }
+
+  a.nav-link {
+    font-size: 20px;
+    margin-right: 20px;
+  }
+
+  a.nav-link:hover {
+    color: red;
+  }
+
+  button.log-out-btn {
+    display: block;
+    color: grey;
+    background-color: black;
+    border: 2px solid pink;
+    border-radius: 30px;
+  }
+
+  button:hover {
+    color: white;
+  }
+
 }
