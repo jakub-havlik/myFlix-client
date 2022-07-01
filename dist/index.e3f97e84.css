@@ -59,45 +59,86 @@
   background-color: #000;
   border: 2px solid pink;
   border-radius: 20px;
-  margin: 10px;
-  padding: 20%;
+  margin-bottom: 40px;
   font-family: Montserrat, sans-serif;
 }
 
-.profile-view-body button.submit {
+.profile-view-body .buttons {
+  flex-flow: wrap;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 0%;
+  display: flex;
+}
+
+.profile-view-body .buttons button.submit {
   color: #000;
   background-color: #8ff;
   border: 5px solid pink;
   border-radius: 30px;
-  margin-top: 40px;
-  display: block;
+  margin-top: 20px;
 }
 
-.profile-view-body button.submit:hover {
+.profile-view-body .buttons button.submit:hover {
   color: red;
   opacity: 1;
   background-color: #fff;
 }
 
-.profile-view-body button.delete {
+.profile-view-body .buttons button.delete {
   color: gray;
   background-color: #000;
   border: 2px solid gray;
   border-radius: 30px;
   margin-top: 20px;
-  display: block;
 }
 
-.profile-view-body button.delete:hover {
+.profile-view-body .buttons button.delete:hover {
   color: red;
   opacity: .5;
   background-color: #fff;
 }
 
+.favorite-movie-body {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-family: Montserrat, sans-serif;
+}
+
+.favorite-movie-body figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.favorite-movie-body figure img {
+  height: 180px;
+  border-radius: 15px;
+  margin: auto;
+  display: block;
+}
+
+.favorite-movie-body button.remove-fav-btn {
+  color: gray;
+  background-color: #000;
+  border: 2px solid gray;
+  border-radius: 20px;
+  margin: 10px auto 15px;
+  display: block;
+}
+
+.favorite-movie-body button.remove-fav-btn:hover {
+  color: #fff;
+  border: 2px solid #fff;
+}
+
 .update-form {
   color: pink;
-  margin: 20px;
-  padding: 20px;
+  margin: 10px;
+  padding: 10px;
 }
 
 .form-label {
@@ -120,53 +161,6 @@ input[placeholder="filter"], textarea {
   border-radius: 30px;
   margin-bottom: 25px;
   padding: 20px;
-}
-
-.favorite-movie {
-  margin-bottom: 15px;
-  font-family: Montserrat, sans-serif;
-}
-
-.favorite-movie figure {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.favorite-movie figure img {
-  height: 180px;
-  border-radius: 15px;
-  margin: auto;
-  display: block;
-}
-
-.favorite-movie figure figcaption {
-  text-align: center;
-}
-
-.favorite-movie button.remove-fav-btn {
-  color: gray;
-  background-color: #000;
-  border: 2px solid gray;
-  border-radius: 20px;
-  margin: auto;
-  display: block;
-}
-
-.favorite-movie button.remove-fav-btn:hover {
-  color: #fff;
-  border: 2px solid whi;
-}
-
-.card {
-  margin-bottom: 20px;
-}
-
-.button-update {
-  background-color: #0ff;
 }
 
 
