@@ -1,5 +1,5 @@
 
-# list[a]peli
+# list{a}peli
 
 
 
