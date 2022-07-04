@@ -56,3 +56,4 @@ MovieCard.propTypes = {
   }).isRequired
 };
 
+
