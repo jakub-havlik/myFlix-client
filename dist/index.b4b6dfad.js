@@ -30853,12 +30853,26 @@ class MainView extends (0, _reactDefault.default).Component {
                                         className: "main-view"
                                     }, void 0, false, void 0, void 0);
                                     //console.log(movies[0].Genre.Name.join(","));
+                                    let genre;
+                                    let desc;
+                                    movies.find((m)=>{
+                                        let result;
+                                        let ii = 0;
+                                        m.Genre.Name.forEach((e)=>{
+                                            if (e === match.params.name) {
+                                                genre = e;
+                                                desc = m.Genre.Description[ii];
+                                            }
+                                            ii++;
+                                        });
+                                    });
                                     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                                         xs: 12,
                                         md: 10,
                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _genreView.GenreView), {
                                             movies: movies,
-                                            genre: movies.find((m)=>m.Genre.Name.join(",") === match.params.name).Genre,
+                                            genreName: genre,
+                                            genreDesc: desc,
                                             onBackClick: ()=>history.goBack()
                                         }, void 0, false, void 0, void 0)
                                     }, void 0, false, void 0, void 0);
@@ -38572,34 +38586,34 @@ function GenreView(props) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
                     className: "display-4",
-                    children: props.genre.Name
+                    children: props.genreName
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 16,
+                    lineNumber: 14,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 15,
+                lineNumber: 13,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                     className: "value",
-                    children: props.genre.Description
+                    children: props.genreDesc
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 19,
+                    lineNumber: 17,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 18,
+                lineNumber: 16,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 21,
+                lineNumber: 19,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -38607,12 +38621,12 @@ function GenreView(props) {
                     children: "other movies in this genre:"
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 23,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 22,
+                lineNumber: 20,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _rowDefault.default), {
@@ -38623,7 +38637,7 @@ function GenreView(props) {
                 // display movies which contain just one of genres from the array of genres
                 .filter((m)=>{
                     for(var i = 0; i < m.Genre.Name.length; i++){
-                        if (m.Genre.Name[i] == props.genre.Name) return true;
+                        if (m.Genre.Name[i] == props.genreName) return true;
                     }
                 }).map((m)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                         xs: 12,
@@ -38634,17 +38648,17 @@ function GenreView(props) {
                             movie: m
                         }, void 0, false, {
                             fileName: "src/components/genre-view/genre-view.jsx",
-                            lineNumber: 44,
+                            lineNumber: 42,
                             columnNumber: 15
                         }, this)
                     }, m._id, false, {
                         fileName: "src/components/genre-view/genre-view.jsx",
-                        lineNumber: 43,
+                        lineNumber: 41,
                         columnNumber: 13
                     }, this))
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 26,
+                lineNumber: 24,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -38654,18 +38668,18 @@ function GenreView(props) {
                     children: "Back to full list"
                 }, void 0, false, {
                     fileName: "src/components/genre-view/genre-view.jsx",
-                    lineNumber: 51,
+                    lineNumber: 48,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/components/genre-view/genre-view.jsx",
-                lineNumber: 50,
+                lineNumber: 47,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/components/genre-view/genre-view.jsx",
-        lineNumber: 13,
+        lineNumber: 12,
         columnNumber: 5
     }, this);
 }
