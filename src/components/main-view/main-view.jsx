@@ -223,15 +223,27 @@ class MainView extends React.Component {
                 // If movie list is empty (while movies load from API), display empty page
                 if (movies.length === 0) return <div className="main-view" />;
                 //console.log(movies[0].Genre.Name.join(","));
+
+                let genre;
+                let desc;
+                movies.find((m) => {
+                  let result;
+                  let ii = 0;
+                  m.Genre.Name.forEach((e) => {
+                    if (e === match.params.name) {
+                      genre = e;
+                      desc = m.Genre.Description[ii];
+                    }
+                    ii++;
+                  });
+                });
+
                 return (
                   <Col xs={12} md={10}>
                     <GenreView
                       movies={movies}
-                      genre={
-                        movies.find(
-                          (m) => m.Genre.Name.join(",") === match.params.name
-                        ).Genre
-                      }
+                      genreName={genre}
+                      genreDesc={desc}
                       onBackClick={() => history.goBack()}
                     />
                   </Col>
