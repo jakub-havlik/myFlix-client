@@ -5,18 +5,16 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
-
 export function GenreView(props) {
   //console.log(props);
 
   return (
-    <div className="genre-view" style={{ color: 'white' }}>
-
+    <div className="genre-view" style={{ color: "white" }}>
       <div>
-        <h1 className="display-4">{props.genre.Name}</h1>
+        <h1 className="display-4">{props.genreName}</h1>
       </div>
       <div>
-        <span className="value">{props.genre.Description}</span>
+        <span className="value">{props.genreDesc}</span>
       </div>
       <br />
       <div>
@@ -33,7 +31,7 @@ export function GenreView(props) {
           // display movies which contain just one of genres from the array of genres
           .filter((m) => {
             for (var i = 0; i < m.Genre.Name.length; i++) {
-              if (m.Genre.Name[i] == props.genre.Name) {
+              if (m.Genre.Name[i] == props.genreName) {
                 return true;
               }
             }
@@ -44,14 +42,11 @@ export function GenreView(props) {
               <MovieCard movie={m} />
             </Col>
           ))}
-
       </Row>
 
       <Link to={"/"}>
         <Button variant="outline-light">Back to full list</Button>
       </Link>
-
     </div>
   );
-
 }
