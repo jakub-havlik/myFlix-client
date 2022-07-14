@@ -1,6 +1,7 @@
 // movie-view is a child component of movie-card
 
 import React from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 
@@ -17,9 +18,28 @@ export class MovieView extends React.Component {
     console.log(event.key);
   }
 
+
+  /////////// ???????????????
+  /////////////////// how to get the username from props?
+  /////////////// ??????????????????
+
+  // check if the current movie is in the list of the favorites already
+  // "https://listapeli.herokuapp.com/users/baiana18/movies"
   componentDidMount() {
     document.addEventListener("keypress", this.keypressCallback);
+    axios.get(`https://listapeli.herokuapp.com/users/${this.props.Username}/movies`,
+      {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      }).then(res => {
+        this.setState({
+          hasBeenAddedToFavorites: res.data.includes(this.props.movie._id)
+        })
+      }).catch(err => {
+
+      })
   }
+
+
 
   componentWillUnmount() {
     document.removeEventListener("keypress", this.keypressCallback);
@@ -56,12 +76,6 @@ export class MovieView extends React.Component {
     } else {
       genrePlural.push(<span>Genres:</span>);
     }
-
-
-    //////////////////////// ????????????????
-    //// PROBLEM
-    // if only one movie is represented by the genre, it throws an error
-    //////////////////////// ????????????????
 
 
     // a list of genres of the selected movie - each one links to its definition
