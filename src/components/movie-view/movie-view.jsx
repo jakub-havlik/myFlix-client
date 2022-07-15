@@ -18,16 +18,12 @@ export class MovieView extends React.Component {
     console.log(event.key);
   }
 
-
-  /////////// ???????????????
-  /////////////////// how to get the username from props?
-  /////////////// ??????????????????
-
   // check if the current movie is in the list of the favorites already
-  // "https://listapeli.herokuapp.com/users/baiana18/movies"
+  // you can also get the username from localstorage not just from props
   componentDidMount() {
+    //console.log(localStorage.getItem("user"));
     document.addEventListener("keypress", this.keypressCallback);
-    axios.get(`https://listapeli.herokuapp.com/users/${this.props.Username}/movies`,
+    axios.get(`https://listapeli.herokuapp.com/users/${localStorage.getItem("user")}/movies`,
       {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       }).then(res => {
@@ -38,8 +34,6 @@ export class MovieView extends React.Component {
 
       })
   }
-
-
 
   componentWillUnmount() {
     document.removeEventListener("keypress", this.keypressCallback);
@@ -67,7 +61,7 @@ export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-    console.log(movie);
+    //console.log(movie);
 
     // if movie has multiple genres change label "Genre:" to "Genres:"
     const genrePlural = [];
