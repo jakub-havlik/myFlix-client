@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { MovieCard } from "../movie-card/movie-card";
 
+
 export function GenreView(props) {
   //console.log(props);
 
@@ -24,10 +25,6 @@ export function GenreView(props) {
       <Row className="justify-content-md-center">
         {props.movies
           // here you can specify how you want to filter "other movies in this genre:"
-
-          // display movies which contain all the genres in the array of genres
-          //.filter((m) => m.Genre.Name === props.genre.Name)
-
           // display movies which contain just one of genres from the array of genres
           .filter((m) => {
             for (var i = 0; i < m.Genre.Name.length; i++) {
