@@ -1,18 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import {
-  Container,
-  Card,
-  CardGroup,
-  Button,
-  Row,
-  Col,
-  Form,
-  FormGroup,
-  FormControl,
-  Figure,
-} from "react-bootstrap";
+import { Figure } from "react-bootstrap";
 // styling
 import "./movie-card.scss";
 
