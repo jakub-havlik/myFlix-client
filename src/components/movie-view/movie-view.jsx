@@ -73,7 +73,7 @@ export class MovieView extends React.Component {
 
 
     // a list of genres of the selected movie - each one links to its definition
-    // ! make sure the last item of the array of genres has no comma behing it
+    // make sure the last item of the array of genres has no comma behing it
     const items = [];
     let comma = "";
     for (const [index, value] of movie.Genre.Name.entries()) {
@@ -134,16 +134,6 @@ export class MovieView extends React.Component {
           {/*here the values pushed to the array "items" are returned*/}
           {/*see the for-loop above*/}
           {items}
-
-          {/*instead of for loop you can also use map() to achieve the same result*/}
-          {/*
-            movie.Genre.Name.map((s) => (
-              <Link to={`/genres/${s}`}>
-                {s}
-                <span>, </span>
-              </Link>
-            ))
-            */}
         </div>
 
         <Button
