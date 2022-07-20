@@ -65,25 +65,6 @@ class MainView extends React.Component {
       });
   }
 
-  // old version before using redux
-  /*getMovies(token) {
-    axios
-      .get("https://listapeli.herokuapp.com/movies", {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((response) => {
-        const movies = response.data.filter(
-          ({ Title, Description, ImagePath }) =>
-            Title && Description && ImagePath
-        );
-        this.setState({
-          movies,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }*/
 
   /* When a user successfully logs in, this function updates the `user` property in state to that *particular user*/
   onLoggedIn(authData) {
